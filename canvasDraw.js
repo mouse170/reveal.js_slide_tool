@@ -25,8 +25,8 @@ function mouseUpHandle(e){
 
 function mouseDownHandle(e){
 	candraw=true;
-	var x = event.clientX;
-	var y = event.clientY+40;
+	var x = event.clientX+5;
+	var y = event.clientY+45;
 	ctx.beginPath();
 	ctx.lineTo(x,y);
 	ctx.stroke();
@@ -35,8 +35,8 @@ function mouseDownHandle(e){
 function mouseMoveHandle(e){
 		if (cursor==false&&candraw==true){
 			console.log('draw');
-			var x = e.clientX;
-			var y = e.clientY+40;
+			var x = e.clientX+5;
+			var y = e.clientY+45;
 			ctx.lineWidth='7px';
 			ctx.strokeStyle="#ffcc33";
 			ctx.lineTo(x,y);
