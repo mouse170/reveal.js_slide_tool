@@ -16,6 +16,6 @@
 }
 
 
-a, img{
-	z-index: 3;
+a,img{
+	z-index: 30;
 }
