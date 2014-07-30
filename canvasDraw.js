@@ -8,6 +8,11 @@ cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
 
+window.onload = function(){
+	var s = document.body.getBoundingClientRect();
+	cvs.width = s.width;
+	cvs.height = s.height*0.8;  
+}
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
