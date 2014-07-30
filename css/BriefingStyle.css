@@ -1,0 +1,14 @@
+.body{
+	position:absolute;
+	width :98%;
+	height :98%;
+	display: inline;
+}
+
+.page{
+	background: #000;
+}
+
+#show{
+	background: #000;
+}
