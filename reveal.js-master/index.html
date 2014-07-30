@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="#8c4738">
+					<h2>技術學習心得報告</h2>
+					<h3>No pain no gain(?)</h3>
+					<p>
+						<small>Created by <a href="#">Pan</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Outlet</h2>
+					<li>Day 1</li><br>
+					<li>Day 2</li><br>
+					<li>Day 3</li><br>
+					<li>Day 4</li>
+				</section>
+				<!--Day 1-->
+				<section>
+					<section>
+						<h1>Day 1</h1>
+						<ol>
+							<li>Unix基本操作</li>
+							<li>Editor</li>
+							<li>Bash Script</li>
+						</ol><br>
+						<img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/3d-transparent-glass-icons-arrows/006775-3d-transparent-glass-icon-arrows-cut-arrow-down.png">
+					</section>
+					<section>
+						<h2>Unix基本操作</h2>
+						<img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/06/Linux-wallpapers-19.jpg" width="300" >
+						<blockquote class="fragment">
+							Before : 指令好多，選項好多，頭好痛。
+						</blockquote>
+						<blockquote class="fragment">
+							After : 光靠鍵盤就可以上山下海來去自如，超強。
+						</blockquote>
+					</section>
+					<section>
+						<h2>Editor</h2>
+						<img src="http://upload.wikimedia.org/wikipedia/en/4/4c/Sublime_Text_Logo.png">
+						<blockquote class="fragment">
+							Before : 忘了裝套件，回頭找舊愛。
+						</blockquote>
+						<blockquote class="fragment">
+							After : 加速開發，神哉套件也。
+						</blockquote>
+					</section>
+					<section>
+						<h2>Bash Script</h2>
+						<blockquote>#!/bin/bash</blockquote>
+						<p class="fragment">...</p>
+						<p class="fragment">...</p>
+						<p class="fragment">
+							好習慣很重要。
+						</p>
+					</section>
+				</section>
+
+				<!--Day 2-->
+				<section>
+					<section>
+						<h1>Day 2</h1>
+						<ol>
+							<li>Git</li>
+							<li>使用Git開發C程式</li>
+							<li>makefile</li>
+						</ol><br>
+						<img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/3d-transparent-glass-icons-arrows/006775-3d-transparent-glass-icon-arrows-cut-arrow-down.png">
+					</section>
+					<section>
+						<h2>Git</h2>
+						<img src="http://www.clearvision-cm.com/wp-content/uploads/2013/02/Git-Logo-1788C1.png" width="300" >
+						<blockquote class="fragment">
+							Before : 曾經用過、沒弄懂過Orz。
+						</blockquote>
+						<blockquote class="fragment">
+							After : 大概懂了，努力在用。
+						</blockquote>
+					</section>
+					<section>
+						<h2>使用Git開發C程式</h2>
+						<img src="http://4.bp.blogspot.com/-3H-HZTtQlNU/UQcrE1WtOGI/AAAAAAAAA-A/IuJcNSg27WU/s1600/Dev-C1.png">
+						<blockquote class="fragment">
+							Before : 複習C。
+						</blockquote>
+						<blockquote class="fragment">
+							After : 記得要push到git。
+						</blockquote>
+					</section>
+					<section>
+						<h2>makefile</h2>
+						<blockquote>
+						# it is a test <br>	
+						all:hello.c <br>
+						    gcc hello.c -o hello <br>
+						clean: <br>
+						    rm -f hello
+						</blockquote>
+						<p class="fragment">
+							有操作過make指令但沒去實際撰寫過makefile，經過這次經驗，終於理解make究竟在做什麼。
+						</p>
+					</section>
+				</section>
+
+				<!--Day 3-->
+				<section>
+					<section>
+						<h1>Day 3</h1>
+						<ol>
+							<li>rST撰寫技術文件</li>
+							<li>Bash Script(scp 上傳/下載)</li>
+							<li>共同編輯utils.c</li>
+						</ol><br>
+						<img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/3d-transparent-glass-icons-arrows/006775-3d-transparent-glass-icon-arrows-cut-arrow-down.png">
+					</section>
+					<section>
+						<h2>rST撰寫技術文件&撰寫makefile</h2>
+						<img src="http://docutils.sourceforge.net/rst.png" width="300" >
+						<blockquote class="fragment">
+							Before : 實習第二天有基礎介紹過，使用上不難。
+						</blockquote>
+						<blockquote class="fragment">
+							After : rST在排版上似乎有部分功能無法達到，但依舊是個好用的工具。
+						</blockquote>
+					</section>
+					<section>
+						<h2>Bash Script(scp 上傳/下載)</h2>
+						<blockquote>scp 人名@主機:/路徑/file ./</blockquote>
+						<p class="fragment">
+							指令真是強大， <br>撰寫這份作業時原先想加入"列出所有檔案"的功能， <br>進行下載前能瀏覽目錄內容，讓操作更人性化， <br>但距離交作業只剩幾分鐘於是作罷。
+						</p>
+					</section>
+					<section>
+						<h2>共同編輯utils.c</h2>
+						<blockquote>
+						切割區域後，測試是否會發生衝突。
+						</blockquote>
+						<p class="fragment">
+							由於大家都乖乖的編輯自己的function，所以並無衝突產生=w=+。
+						</p>
+					</section>
+				</section>
+
+
+				<!--Day 4-->
+				<section>
+					<section>
+						<h1>Day 4</h1>
+						<ol>
+							<li>rst轉html,分別套上2套不同的CSS</li>
+							<li>學習HTML5 的簡報工具</li>
+						</ol><br>
+						<img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/3d-transparent-glass-icons-arrows/006775-3d-transparent-glass-icon-arrows-cut-arrow-down.png">
+					</section>
+					<section>
+						<h2>rst轉html,<br>分別套上2套不同的CSS</h2>
+						<img src="http://blog.wsibsns.mx/wp-content/uploads/2014/06/css.png" width="150" >
+						<img src="http://www.antonoffplus.com/wp-content/uploads/2013/03/page_css_256.png" width="150">
+						<p class="fragment">人要衣裝，佛要金裝，html也要CSS來包裝。<br>
+							如果妝畫歪了? </p>
+						<p class="fragment">
+							噢 <br>
+							那比素顏還可怕</p>
+					</section>
+					<section>
+						<h2>學習HTML5 的簡報工具</h2>
+						<p>這次我所使用的是</p>
+						<img src="http://cdn.impressivewebs.com/2012-03/revealjs.jpg" width="300">
+						<p class="fragment">
+							有分成 online 和 offline 兩種編輯方式 <br>，online有提供UI，操作上較為便利。
+						</p>
+						<p class="fragment">
+							我乖乖地開editor一字一字慢慢敲，把這份簡報給完成了......
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h1>
+						The End
+					</h1>
+					<p>感謝各位聆聽~ <(_ _)></p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<!--
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>
+							Slides can be nested inside of other slides,
+							try pressing <a href="#" class="navigate-down">down</a>.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Press down or up to navigate.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>Cornify</p>
+						<a class="test" href="http://cornify.com">
+							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 3</h2>
+						<p>That's it, time to go back up.</p>
+						<a href="#/2" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>Works in Mobile Safari</h2>
+					<p>
+						Try it out! You can swipe through the slides and pinch your way to the overview.
+					</p>
+				</section>
+
+				<section>
+					<h2>Marvelous Unordered List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  For those of you who like that sort of thing.
+						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=cube#/transitions">Cube</a> -
+						<a href="?transition=page#/transitions">Page</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a> -
+						<a href="?transition=linear#/transitions">Linear</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?#/transitions">Default</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						Reveal.js comes with a few themes built in: <br>
+						<a href="?#/themes">Default</a> -
+						<a href="?theme=sky#/themes">Sky</a> -
+						<a href="?theme=beige#/themes">Beige</a> -
+						<a href="?theme=simple#/themes">Simple</a> -
+						<a href="?theme=serif#/themes">Serif</a> -
+						<a href="?theme=night#/themes">Night</a> <br>
+						<a href="?theme=moon#/themes">Moon</a> -
+						<a href="?theme=solarized#/themes">Solarized</a>
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Custom Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<section data-background="#007777">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Repeated Image Backgrounds</h2>
+						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+				</section>
+
+				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+					<h2>Background Transitions</h2>
+					<p>
+						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h2>Background Transition Override</h2>
+					<p>
+						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-current-blue">highlight-current-blue</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
+						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
+					</a>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
+						during a presentation.
+					</p>
+				</section>
+
+				<section>
+					<h2>Stellar Links</h2>
+					<ul>
+						<li><a href="http://slid.es">Try the online editor</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
+				</section>-->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
