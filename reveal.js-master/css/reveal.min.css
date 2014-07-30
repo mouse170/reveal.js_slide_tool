@@ -16,6 +16,28 @@
 }
 
 
-a, img{
-	z-index: 3;
+a,img{
+	z-index: 30;
+}
+
+#slide_field{
+	width: 100%;
+	height: 80%;
+	border:0px;
+}
+#marker{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+}
+#cursors{
+	z-index: 10;
+	display: none;
+	position: absolute;
+	left: 0;
+}
+#clear{
+	z-index: 10;
+	position: absolute;
+	right: 0;
 }
