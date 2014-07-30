@@ -15,10 +15,10 @@
 	/*pointer-events:none;*/
 }
 
-
-a,img{
+.reveal a, img{
 	z-index: 30;
 }
+
 
 #slide_field{
 	width: 100%;
