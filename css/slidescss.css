@@ -28,8 +28,7 @@ img{
 	height: 100%;
 }
 #canvas{
-	width: 100%;
-	height: 80%;
+	z-index: 5;
 	position: absolute;
 }
 #slide_field{
@@ -37,28 +36,39 @@ img{
 	height: 80%;
 	border:0px;
 }
+#marker{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+}
+#cursors{
+	z-index: 10;
+	display: none;
+	position: absolute;
+	left: 0;
+}
+#clear{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
+
 
 
 /* Media Query ，也就是當寬度 < 768 px 時將載入下面這段 CSS :*/
 @media only screen and (max-width: 768px) {
 	*{
-		background:blue;
 	}
 }
  
 /*Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS :*/
 @media only screen and (max-width: 480px) {
 	*{
-		background:red;
 	}
 }
 
 /*Media Query ，也就是當寬度 < 320 px 時將載入下面這段 CSS :*/
  @media only screen and (max-width: 320px) {
- 	*{
-		font-size: 15pt;
-		background:green;
-	}
 	#chatfield,#notefield{
 		margin: 0px 0px;
 		display: block;
