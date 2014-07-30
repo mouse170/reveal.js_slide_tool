@@ -11,12 +11,12 @@ cvs.addEventListener('mousemove',mouseMoveHandle,false);
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
-	cvs.height = s.height*0.8;  
+	cvs.height = s.height;  
 }
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
-	cvs.height = s.height*0.8;  
+	cvs.height = s.height;  
 }
 
 function mouseUpHandle(e){
@@ -25,8 +25,8 @@ function mouseUpHandle(e){
 
 function mouseDownHandle(e){
 	candraw=true;
-	var x = event.clientX-cvs.offsetLeft;
-	var y = event.clientY-cvs.offsetTop+40;
+	var x = event.clientX;
+	var y = event.clientY+40;
 	ctx.beginPath();
 	ctx.lineTo(x,y);
 	ctx.stroke();
@@ -35,8 +35,8 @@ function mouseDownHandle(e){
 function mouseMoveHandle(e){
 		if (cursor==false&&candraw==true){
 			console.log('draw');
-			var x = e.clientX-cvs.offsetLeft;
-			var y = e.clientY-cvs.offsetTop+40;
+			var x = e.clientX;
+			var y = e.clientY+40;
 			ctx.lineWidth='7px';
 			ctx.strokeStyle="#ffcc33";
 			ctx.lineTo(x,y);
@@ -47,7 +47,7 @@ function mouseMoveHandle(e){
 function useMarker(){
 	cursor=false;
 	console.log("in marker");
-	cvs.style.cursor="url('../image/Marker-icon.png'),default";
+	cvs.style.cursor="url('../image/marker.png'),default";
 	buttonC.style.display="inline-block";
 	buttonM.style.display="none";
 }
