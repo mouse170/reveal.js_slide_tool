@@ -42,7 +42,7 @@ function mouseMoveHandle(e){
 function useMarker(){
 	cursor=false;
 	console.log("in marker");
-	cvs.style.cursor="url('image/Marker-icon.png'),default";
+	cvs.style.cursor="url('../image/Marker-icon.png'),default";
 	buttonC.style.display="inline-block";
 	buttonM.style.display="none";
 }
@@ -50,7 +50,7 @@ function useMarker(){
 function useCursor(){
 	cursor=true;
 	console.log("in cursor");
-	cvs.style.cursor="url('image/Cursor-icon.png'),default";
+	cvs.style.cursor="url('../image/Cursor-icon.png'),default";
 	buttonM.style.display="inline-block";
 	buttonC.style.display="none";
 }

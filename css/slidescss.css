@@ -27,13 +27,11 @@ img{
 	width: 100%;
 	height: 100%;
 }
-<<<<<<< HEAD
+
 #canvas{
 	z-index: 5;
 	position: absolute;
 }
-=======
->>>>>>> 7f15ea1539679a7ce579e5707c845cc3851061a5
 #slide_field{
 	width: 100%;
 	height: 80%;
