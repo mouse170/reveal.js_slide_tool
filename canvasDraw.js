@@ -10,16 +10,15 @@ var cursor = "";
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
-cvs.addEventListener('mousemove',mouseClickHandle,false);
-// cvs.addEventListener('')
-
-var isAdding=false
+cvs.addEventListener('click',mouseClickHandle,false);
+var isAdding=false;
 
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
 	cvs.height = s.height;  
 }
+
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
@@ -61,6 +60,11 @@ function mouseMoveHandle(e){
 		}
 }
 
+function  mouseClickHandle(e){
+  if(isAdding)
+	alert("按到我啦!!!");
+}
+
 function useMarker(){
 	cursor="M";
 	console.log("in marker");
@@ -99,5 +103,9 @@ function text(color,str,x,y,size){
 }
 
 function useAddText(){
-	isAdding=true;
+	if(isAdding)
+		isAdding=false;
+	else
+		isAdding=true;
+	console.log("in AddText");
 }

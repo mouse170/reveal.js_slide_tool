@@ -78,6 +78,12 @@ img{
 	position: absolute;
 	right: 0;
 }
+
+#addtext{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
 /*------------- canvas setting & tools end -------------*/
 
 #notefield:hover .tag{
