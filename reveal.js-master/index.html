@@ -37,12 +37,13 @@
 	</head>
 
 	<body>
-		<input id="marker" type="button" value="螢光筆" onclick="useMarker()"/>
-		<input id="addtext" type="button" value="新增文字" onclick="useAddText()"/>
-		<input id="cursors" type="button" value="滑鼠" onclick="useCursor()"/>
-		<input id="eraser" type="button" value="橡皮擦" onclick="useEraser()"/>
-		<input id="clear" type="button" value="清空" onclick="canvasClear()"/>
-		<canvas id="canvas" style="cursor: url('../image/white.png'),default;"></canvas>
+		<img id="tool" src="../image/toolB.png" onclick="expandTool()"/>
+		<img id="marker" src="../image/markerB.png" onclick="useMarker()" title="螢光筆"/>
+		<img id="cursors" src="../image/whiteB.png" onclick="useCursor()" title="游標"/>
+		<img id="eraser" src="../image/eraserB.png" onclick="useEraser()" title="橡皮擦"/>
+		<img id="keyfont" src="../image/textB.png" onclick="useAddText()" title="插入文字"/>
+		<img id="clear" src="../image/clearB.png" onclick="canvasClear()" title="清除"/>
+		<canvas id="canvas" style="cursor: url('../image/micky.png'),default;"></canvas>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->

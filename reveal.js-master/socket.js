@@ -1,7 +1,10 @@
+var cvs = document.getElementById('canvas');
+var ctx = cvs.getContext('2d');
 
 Reveal.addEventListener( 'slidechanged', function( event ) {
     // alert(event.indexh);  //X軸頁數
     // alert(event.indexv);  //Y軸頁數
+	ctx.clearRect(0,0,cvs.width,cvs.height);
 } );
 
 
