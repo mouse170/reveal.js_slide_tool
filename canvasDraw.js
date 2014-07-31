@@ -4,6 +4,7 @@ var buttonM = document.getElementById('marker');
 var buttonC = document.getElementById('cursors');
 var buttonE = document.getElementById('eraser');
 var buttonCc = document.getElementById('clear');
+var buttonT = document.getElementById('keyfont');
 
 var candraw = false;
 var cursor = "";
@@ -57,31 +58,51 @@ function mouseMoveHandle(e){
 		}
 }
 
+var onoff=0;
+function expandTool(){
+	if(onoff==0){
+		cursor="";
+		console.log("tools");
+		buttonM.style.display="inline-block";
+		buttonC.style.display="inline-block";
+		buttonT.style.display="inline-block";
+		buttonM.classList.add('moveinX');
+		buttonC.classList.add('moveinY');
+		buttonT.classList.add('moveinXY');
+		onoff=1;
+	}
+	else{
+		buttonM.style.display="none";
+		buttonC.style.display="none";
+		buttonT.style.display="none";
+		onoff=0;
+	}
+	
+
+}
+
 function useMarker(){
 	cursor="M";
 	console.log("in marker");
 	cvs.style.cursor="url('../image/marker.png'),default"; 
-	buttonC.style.display="inline-block";
-	buttonM.style.display="none";
 	cvs.style.zIndex = 5;
 }
 
 function useCursor(){
 	cursor="C";
 	console.log("in cursor");
-	cvs.style.cursor="url('../image/white.png'),default";
-	buttonM.style.display="inline-block";
-	buttonC.style.display="none";
-	cvs.style.zIndex = 0;
+	cvs.style.cursor="url('../image/micky.png'),default";
+	cvs.style.zIndex = -1;
 }
 
 function useEraser(){
 	cursor="E";
 	console.log("in eraser");
 	cvs.style.cursor="url('../image/eraser.png'),default";
-	buttonM.style.display="inline-block";
-	buttonC.style.display="none";
 	cvs.style.zIndex = 5;
+}
+
+function useText(){	
 }
 
 function canvasClear(){
