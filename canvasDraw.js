@@ -5,7 +5,7 @@ var buttonC = document.getElementById('cursors');
 var buttonE = document.getElementById('eraser');
 var buttonCc = document.getElementById('clear');
 var buttonT = document.getElementById('keyfont');
-
+var onoff=0;
 var candraw = false;
 var cursor = "";
 cvs.addEventListener('mouseup',mouseUpHandle,false);
@@ -29,6 +29,14 @@ function mouseUpHandle(e){
 }
 
 function mouseDownHandle(e){
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
+
 	candraw=true;
 	var x = event.clientX+5;
 	var y = event.clientY+45;
@@ -59,23 +67,28 @@ function mouseMoveHandle(e){
 		}
 }
 
-var onoff=0;
+
 function expandTool(){
 	if(onoff==0){
-		cursor="";
 		console.log("tools");
 		buttonM.style.display="inline-block";
 		buttonC.style.display="inline-block";
 		buttonT.style.display="inline-block";
+		buttonM.classList.remove('moveoutX');
+		buttonC.classList.remove('moveoutY');
+		buttonT.classList.remove('moveoutXY');
 		buttonM.classList.add('moveinX');
 		buttonC.classList.add('moveinY');
 		buttonT.classList.add('moveinXY');
 		onoff=1;
 	}
 	else{
-		buttonM.style.display="none";
-		buttonC.style.display="none";
-		buttonT.style.display="none";
+		buttonM.classList.add('moveoutX');
+		buttonC.classList.add('moveoutY');
+		buttonT.classList.add('moveoutXY');
+		buttonM.classList.remove('moveinX');
+		buttonC.classList.remove('moveinY');
+		buttonT.classList.remove('moveinXY');
 		onoff=0;
 	}
 	
@@ -87,6 +100,13 @@ function useMarker(){
 	console.log("in marker");
 	cvs.style.cursor="url('../image/marker.png'),default"; 
 	cvs.style.zIndex = 5;
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
 }
 
 function useCursor(){
@@ -94,6 +114,13 @@ function useCursor(){
 	console.log("in cursor");
 	cvs.style.cursor="url('../image/micky.png'),default";
 	cvs.style.zIndex = -1;
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
 }
 
 function useEraser(){
@@ -104,6 +131,14 @@ function useEraser(){
 }
 
 function useText(){	
+	cvs.style.cursor="text";
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
 }
 
 function canvasClear(){

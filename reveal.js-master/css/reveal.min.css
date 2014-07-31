@@ -54,7 +54,8 @@ body{
 #eraser{
 	z-index: 10;
 	position: absolute;
-	right: 60px;
+	right: 0;
+	top: 60px;
 }
 #clear{
 	z-index: 10;
@@ -64,12 +65,12 @@ body{
 #tool:hover,#marker:hover,#cursors:hover,#keyfont:hover{
 	-webkit-filter: brightness(1);
 }
-#tool:active,#marker:active,#cursors:active,#eraser:active{
+#tool:active,#marker:active,#cursors:active,#keyfont:active{
 
 }
 
 
-
+/*按鈕群滑進*/
 .moveinX{
   -webkit-animation: moveinX 0.5s 1;
   -webkit-animation-fill-mode: both;
@@ -80,6 +81,20 @@ body{
 }
 .moveinXY{
   -webkit-animation: moveinXY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+
+/*按鈕群滑出*/
+.moveoutX{
+  -webkit-animation: moveoutX 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveoutY{
+  -webkit-animation: moveoutY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveoutXY{
+  -webkit-animation: moveoutXY 0.5s 1;
   -webkit-animation-fill-mode: both;
 }
 
@@ -120,16 +135,14 @@ body{
 
 @-webkit-keyframes moveinXY {
   0% {
-    -webkit-transform: translateX(-45px);
-    -webkit-transform: translateY(-45px);
+    -webkit-transform: translate(-55px,-55px);
     opacity: 0;
   }
   25% {
     opacity: 0.5;
   }
   50% {
-    -webkit-transform: translateX(0px);
-  	-webkit-transform: translateY(0px);
+    -webkit-transform: translate(0,0);
     opacity: 1;
   }
   100% {
@@ -139,53 +152,51 @@ body{
 
 @-webkit-keyframes moveoutX {
   0% {
-    -webkit-transform: translateX(-80px);
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.5;
-  }
-  50% {
     -webkit-transform: translateX(0px);
     opacity: 1;
   }
-  100% {
+  25% {
     opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateX(-80px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
 @-webkit-keyframes moveoutY {
   0% {
     -webkit-transform: translateY(0px);
-    opacity: 0;
+    opacity: 1;
   }
   25% {
-    opacity: 0.5;
+    opacity: 1;
   }
   50% {
-    -webkit-transform: translateY(80px);
-    opacity: 1;
+    -webkit-transform: translateY(-80px);
+    opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
 @-webkit-keyframes moveoutXY {
   0% {
-    -webkit-transform: translateX(-45px);
-    -webkit-transform: translateY(-45px);
-    opacity: 0;
+    -webkit-transform: translate(0,0)
+    opacity: 1;
   }
   25% {
-    opacity: 0.5;
+    opacity: 1;
   }
   50% {
-    -webkit-transform: translateX(0px);
-  	-webkit-transform: translateY(0px);
-    opacity: 1;
+    -webkit-transform: translate(-55px,-55px);
+    opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
