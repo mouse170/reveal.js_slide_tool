@@ -110,7 +110,7 @@ img{
   clear: both;
 }
 
-.bubble-alt {
+.bubbleAlt {
   text-align: left;
   float: left;
   clear: both;
@@ -130,7 +130,7 @@ img{
   *display: inline;
   *zoom: 1;
 }
-.bubble-alt {
+.bubbleAlt {
   position: relative;
   padding: 3px;
   /* css3 */
