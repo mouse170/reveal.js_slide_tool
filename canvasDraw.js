@@ -10,7 +10,10 @@ var cursor = "";
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
+cvs.addEventListener('mousemove',mouseClickHandle,false);
 // cvs.addEventListener('')
+
+var isAdding=false
 
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
@@ -93,4 +96,8 @@ function text(color,str,x,y,size){
     ctx.fillStyle=color;
     ctx.font=size+" bold 'arial'";
     ctx.fillText(str,x,y);
+}
+
+function useAddText(){
+	isAdding=true;
 }
