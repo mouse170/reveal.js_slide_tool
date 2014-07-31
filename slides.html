@@ -23,7 +23,7 @@
     });
     socket.on('chat', function(username, data) {
         var p = document.createElement('p');
-        p.innerHTML = username + ': ' + data;
+        p.innerHTML =  "<span class=\"bubbleAlt\">"+username + ': ' + data+"</span>";
         document.getElementById('chatfield').appendChild(p);
     });
     window.addEventListener('load', function() {
@@ -41,7 +41,6 @@
     <div id="bottom_panel">
         <div id="chatfield">
             <!-- <span class="tag"><p>ChatRoom</p></span>
->>>>>>> 7c2e887b211e404f9ddc30bdb8d9a66fcd5c56db
             <div class="bubble">testetest</div>
             <div class="bubble-alt">這段是中文</div>
             <div class="bubble">testetest</div>
@@ -50,6 +49,7 @@
             <div class="bubble-alt">這段是中文</div>
             <div class="bubble">testetest</div>
             <div class="bubble-alt">這段是中文</div>      -->
+        	<span class="bubbleAlt">testesttet</span>
         </div>
         <div id="inputfield">
             <input type="text" id="data" size="100" />
