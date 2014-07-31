@@ -5,21 +5,25 @@ var buttonC = document.getElementById('cursors');
 var buttonE = document.getElementById('eraser');
 var buttonCc = document.getElementById('clear');
 var buttonT = document.getElementById('keyfont');
+var addText = document.getElementById('addText');
+var textbg = document.getElementById('textbg');
 
+var onoff=0;
 var candraw = false;
 var cursor = "";
-cvs.addEventListener('dblclick',mouseClickHandle,false);
+var addTextX=0;
+var addTextY=0;
+
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
-var isAdding=false;
+addText.addEventListener('keydown',addin,false);
 
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
 	cvs.height = s.height;  
 }
-
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
@@ -31,12 +35,30 @@ function mouseUpHandle(e){
 }
 
 function mouseDownHandle(e){
-	candraw=true;
-	var x = event.clientX+5;
-	var y = event.clientY+45;
-	ctx.beginPath();
-	ctx.lineTo(x,y);
-	ctx.stroke();
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
+
+	if(cursor=="T"){
+		textbg.style.display="inline-block";
+		addTextX = e.clientX;
+		addTextY = e.clientY+5;
+		console.log(addText);
+		addText.style.top=addTextY+'px';
+		addText.style.left=addTextX+'px';
+	}
+	else{
+		candraw=true;
+		var x = event.clientX+5;
+		var y = event.clientY+45;
+		ctx.beginPath();
+		ctx.lineTo(x,y);
+		ctx.stroke();
+	}
 }
 
 function mouseMoveHandle(e){
@@ -61,35 +83,52 @@ function mouseMoveHandle(e){
 		}
 }
 
+// <<<<<<< HEAD
 
-function  mouseClickHandle(e){
-  if(isAdding){
-  	var x = e.clientX+5;
-	var y = e.clientY+45;
-	addtextarea(x,y);
-	// alert(x+'+'+y);
-	// var str=window.prompt("想要輸入的文字");
-	// text("#fff",str,x,y,20);
-  }
+// function  mouseClickHandle(e){
+//   if(isAdding){
+//   	var x = e.clientX+5;
+// 	var y = e.clientY+45;
+// 	addtextarea(x,y);
+// 	// alert(x+'+'+y);
+// 	// var str=window.prompt("想要輸入的文字");
+// 	// text("#fff",str,x,y,20);
+//   }
+// =======
+function addin(e){	
+	if(e.keyCode==13){
+		var str = addText.value;
+		text("#fff",str,addTextX,addTextY,20);
+		addText.value='';
+		textbg.style.display="none";
+		addText.focus();
+	}
+// >>>>>>> ab8ec468afce16199c37247d2c170425409b14b8
 }
 
-var onoff=0;
+
+
 function expandTool(){
 	if(onoff==0){
-		cursor="";
 		console.log("tools");
 		buttonM.style.display="inline-block";
 		buttonC.style.display="inline-block";
 		buttonT.style.display="inline-block";
+		buttonM.classList.remove('moveoutX');
+		buttonC.classList.remove('moveoutY');
+		buttonT.classList.remove('moveoutXY');
 		buttonM.classList.add('moveinX');
 		buttonC.classList.add('moveinY');
 		buttonT.classList.add('moveinXY');
 		onoff=1;
 	}
 	else{
-		buttonM.style.display="none";
-		buttonC.style.display="none";
-		buttonT.style.display="none";
+		buttonM.classList.add('moveoutX');
+		buttonC.classList.add('moveoutY');
+		buttonT.classList.add('moveoutXY');
+		buttonM.classList.remove('moveinX');
+		buttonC.classList.remove('moveinY');
+		buttonT.classList.remove('moveinXY');
 		onoff=0;
 	}
 }
@@ -99,6 +138,13 @@ function useMarker(){
 	console.log("in marker");
 	cvs.style.cursor="url('../image/marker.png'),default"; 
 	cvs.style.zIndex = 5;
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
 }
 
 function useCursor(){
@@ -106,6 +152,13 @@ function useCursor(){
 	console.log("in cursor");
 	cvs.style.cursor="url('../image/micky.png'),default";
 	cvs.style.zIndex = -1;
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
 }
 
 function useEraser(){
@@ -115,6 +168,20 @@ function useEraser(){
 	cvs.style.zIndex = 5;
 }
 
+
+function useText(){	
+	cursor="T";
+	console.log("in Text");
+	cvs.style.cursor="text";
+	cvs.style.zIndex = 5;
+	buttonM.classList.add('moveoutX');
+	buttonC.classList.add('moveoutY');
+	buttonT.classList.add('moveoutXY');
+	buttonM.classList.remove('moveinX');
+	buttonC.classList.remove('moveinY');
+	buttonT.classList.remove('moveinXY');
+	onoff=0;
+}
 
 function canvasClear(){
 	ctx.clearRect(0,0,cvs.width,cvs.height);

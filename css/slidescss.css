@@ -110,7 +110,7 @@ img{
   clear: both;
 }
 
-.bubble-alt {
+.bubbleAlt {
   text-align: left;
   float: left;
   clear: both;
@@ -130,7 +130,7 @@ img{
   *display: inline;
   *zoom: 1;
 }
-.bubble-alt {
+.bubbleAlt {
   position: relative;
   padding: 3px;
   /* css3 */
@@ -155,15 +155,8 @@ img{
 	*{
 	}
 }
- 
-/*Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS :*/
-@media only screen and (max-width: 480px) {
-	*{
-	}
-}
-
 /*Media Query ，也就是當寬度 < 320 px 時將載入下面這段 CSS :*/
- @media only screen and (max-width: 320px) {
+ @media only screen and (max-width: 480px) {
 	#chatfield,#notefield{
 		margin: 0px 0px;
 		display: block;

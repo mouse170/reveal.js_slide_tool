@@ -23,7 +23,7 @@
     });
     socket.on('chat', function(username, data) {
         var p = document.createElement('p');
-        p.innerHTML = username + ': ' + data;
+        p.innerHTML =  "<span class=\"bubbleAlt\">"+username + ': ' + data+"</span>";
         document.getElementById('chatfield').appendChild(p);
     });
     window.addEventListener('load', function() {
@@ -36,25 +36,10 @@
 </head>
 
 <body>
-    <!-- <input id="marker" type="button" value="螢光筆" onclick="useMarker()"/>
-	<input id="cursors" type="button" value="滑鼠" onclick="useCursor()"/>
-	<input id="clear" type="button" value="清空" onclick="canvasClear()"/>
-	
-	<canvas id="canvas" width="1366" height="614.4" style="cursor: url('image/Cursor-icon.png'),default;"></canvas> -->
-
     <iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" style="cursor:url('image/white.png'),default;"></iframe>
     <div id="bottom_panel">
         <div id="chatfield">
-            <!-- <span class="tag"><p>ChatRoom</p></span>
->>>>>>> 7c2e887b211e404f9ddc30bdb8d9a66fcd5c56db
-			<div class="bubble">testetest</div>
-			<div class="bubble-alt">這段是中文</div>
-			<div class="bubble">testetest</div>
-			<div class="bubble">這段是中文，你媽知道你在這裡發廢文嗎?</div>
-			<div class="bubble">testetest</div>
-			<div class="bubble-alt">這段是中文</div>
-			<div class="bubble">testetest</div>
-			<div class="bubble-alt">這段是中文</div>		 -->
+        	<span class="bubbleAlt">testesttet</span>
         </div>
         <div id="inputfield">
             <input type="text" id="data" size="100" />
@@ -65,7 +50,7 @@
             <span class="tag">
                 <p>Note</p>
             </span>
-            <textarea id="note" placeholder="筆記"></textarea>
+            <textarea id="note" placeholder="會議筆記"></textarea>
         </div>
     </div>
 </body>
