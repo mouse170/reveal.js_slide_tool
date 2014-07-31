@@ -66,9 +66,10 @@ function  mouseClickHandle(e){
   if(isAdding){
   	var x = e.clientX+5;
 	var y = e.clientY+45;
+	addtextarea(x,y);
 	// alert(x+'+'+y);
-	var str=window.prompt("想要輸入的文字");
-	text("#fff",str,x,y,20);
+	// var str=window.prompt("想要輸入的文字");
+	// text("#fff",str,x,y,20);
   }
 }
 
@@ -114,8 +115,6 @@ function useEraser(){
 	cvs.style.zIndex = 5;
 }
 
-function useText(){	
-}
 
 function canvasClear(){
 	ctx.clearRect(0,0,cvs.width,cvs.height);

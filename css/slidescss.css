@@ -183,3 +183,9 @@ img{
 		height: 100%;
 	}
 }
+
+
+#inputText{
+	z-index: 10;
+	position: absolute;
+}
