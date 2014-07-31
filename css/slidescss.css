@@ -1,4 +1,7 @@
-
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+*{
+	font-family: 'Dosis', sans-serif;
+}
 body{
 	margin: 0 0 ;
 	overflow: hidden;
@@ -9,25 +12,42 @@ img{
 	height: auto;
     max-width: 100%;
 }
-#chatfield,#notefield{
+
+
+/*------------- bottom_panel -------------*/
+#chatfield{
+	display: inline-block;
 	margin: 0px 0px;
 	float: left;
 	width: 40%;
 	height: 20%;
+	overflow: auto;
+}
+#notefield{
+	margin: 0px 0px;
+	float: left;
+	width: 40%;
+	height: 20%;
+}
+#note{
+	color: #333;
+	background-color: #fff; 
+	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
+	background-size: 100% 1.2em;
+	width: 100%;
+	height: 100%;
 }
 #inputfield{
 	margin: 0px 0px;
 	float: left;
 	width: 20%;
 	height: 20%;
-	background: #ccc;
 }
-#input{
-	font-size: 15pt;
-	width: 100%;
-	height: 100%;
-}
+/*------------- bottom_panel end -------------*/
 
+
+
+/*------------- canvas setting & tools -------------*/
 #canvas{
 	z-index: 5;
 	position: absolute;
@@ -52,6 +72,74 @@ img{
 	z-index: 10;
 	position: absolute;
 	right: 0;
+}
+#eraser{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
+/*------------- canvas setting & tools end -------------*/
+
+#notefield:hover .tag{
+	display: inline-block;
+}
+#chatfield:hover .tag{
+	display: inline-block;
+}
+.tag{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	color: #fff;
+	border-radius: 50px 50px 0 0;
+	background: #a67f48;
+	margin-top: -49px;
+	display: none;
+}
+
+.bubble {
+  text-align: right;
+  float: right;
+  clear: both;
+}
+
+.bubble-alt {
+  text-align: left;
+  float: left;
+  clear: both;
+}
+.bubble {
+  position: relative;
+  padding: 3px;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 3px;
+  box-shadow: -1px 3px 2px 0 rgba(51, 51, 102, 0.3);
+  color: #FFF;
+  margin: 3px 10px 3px 10px;
+  background: #44b7fa;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.bubble-alt {
+  position: relative;
+  padding: 3px;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 3px;
+  box-shadow: 1px 3px 2px 0 rgba(51, 51, 102, 0.3);
+  color: #fff;
+  margin: 5px auto;
+  margin-right: 30px;
+  margin-left: 20px;
+  background: #00cc33;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 
 

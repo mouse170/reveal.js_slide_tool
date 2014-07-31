@@ -41,3 +41,8 @@
 	position: absolute;
 	right: 0;
 }
+#eraser{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}

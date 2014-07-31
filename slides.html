@@ -19,13 +19,25 @@
 	
 	<canvas id="canvas" width="1366" height="614.4" style="cursor: url('image/Cursor-icon.png'),default;"></canvas> -->
 
-	<iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" ></iframe>
+	<iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" style="cursor:url('image/white.png'),default;"></iframe>
 	<div id="bottom_panel">
-		<div id="chatfield">A</div>
-		<div id="inputfield">
-			<textarea id="input" rows="4" cols="60" placeholder="請在這裡輸入訊息" ></textarea>
+		<div id="chatfield">
+			<span class="tag"><p>ChatRoom</p></span>
+			<div class="bubble">testetest</div>
+			<div class="bubble-alt">這段是中文</div>
+			<div class="bubble">testetest</div>
+			<div class="bubble">這段是中文，你媽知道你在這裡發廢文嗎?</div>
+			<div class="bubble">testetest</div>
+			<div class="bubble-alt">這段是中文</div>
+			<div class="bubble">testetest</div>
+			<div class="bubble-alt">這段是中文</div>		
 		</div>
-		<div id="notefield">C</div>
+		<div id="inputfield">
+		</div>
+		<div id="notefield">
+			<span class="tag"><p>Note</p></span>
+			<textarea id="note" placeholder="筆記"></textarea>
+		</div>
 	</div>
 </body>
 </html>
