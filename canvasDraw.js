@@ -8,18 +8,15 @@ var buttonT = document.getElementById('keyfont');
 var onoff=0;
 var candraw = false;
 var cursor = "";
-cvs.addEventListener('dblclick',mouseClickHandle,false);
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
-var isAdding=false;
 
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
 	cvs.height = s.height;  
 }
-
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
 	cvs.width = s.width;
@@ -39,12 +36,20 @@ function mouseDownHandle(e){
 	buttonT.classList.remove('moveinXY');
 	onoff=0;
 
-	candraw=true;
-	var x = event.clientX+5;
-	var y = event.clientY+45;
-	ctx.beginPath();
-	ctx.lineTo(x,y);
-	ctx.stroke();
+	if(cursor=="T"){
+		var x = e.clientX;
+		var y = e.clientY+5;
+		var str = window.prompt("想要輸入的文字");
+		text("#fff",str,x,y,20);
+	}
+	else{
+		candraw=true;
+		var x = event.clientX+5;
+		var y = event.clientY+45;
+		ctx.beginPath();
+		ctx.lineTo(x,y);
+		ctx.stroke();
+	}
 }
 
 function mouseMoveHandle(e){
@@ -70,20 +75,7 @@ function mouseMoveHandle(e){
 }
 
 
-<<<<<<< HEAD
-=======
-function  mouseClickHandle(e){
-  if(isAdding){
-  	var x = e.clientX+5;
-	var y = e.clientY+45;
-	// alert(x+'+'+y);
-	var str=window.prompt("想要輸入的文字");
-	text("#fff",str,x,y,20);
-  }
-}
 
-var onoff=0;
->>>>>>> 9c354265af1940f43d2e3c02771195ea05894134
 function expandTool(){
 	if(onoff==0){
 		console.log("tools");
@@ -145,7 +137,10 @@ function useEraser(){
 }
 
 function useText(){	
+	cursor="T";
+	console.log("in Text");
 	cvs.style.cursor="text";
+	cvs.style.zIndex = 5;
 	buttonM.classList.add('moveoutX');
 	buttonC.classList.add('moveoutY');
 	buttonT.classList.add('moveoutXY');
@@ -163,12 +158,4 @@ function text(color,str,x,y,size){
     ctx.fillStyle=color;
     ctx.font=size+" bold 'arial'";
     ctx.fillText(str,x,y);
-}
-
-function useAddText(){
-	if(isAdding)
-		isAdding=false;
-	else
-		isAdding=true;
-	console.log("in AddText");
 }
