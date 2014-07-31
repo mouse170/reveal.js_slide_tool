@@ -11,6 +11,7 @@ var cursor = "";
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
+// cvs.addEventListener('')
 
 window.onload = function(){
 	var s = document.body.getBoundingClientRect();
