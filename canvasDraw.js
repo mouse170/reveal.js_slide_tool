@@ -56,6 +56,7 @@ function mouseDownHandle(e) {
 		console.log(addText);
 		addText.style.top = addTextY + 'px';
 		addText.style.left = addTextX + 'px';
+		addText.focus();
 	} else {
 		// candraw=true;
 		var x = event.clientX + 5;
