@@ -38,5 +38,21 @@ io.sockets.on('connection', function(socket) {
             io.sockets.emit('canvasClear',true);
     });
 
+    socket.on('mouse',function(type,type2,x,y){
+        if(type=='mouseDown'){
+            io.sockets.emit('mouseDown',x,y);
+        }
+        else if(type=='mouseMove'){
+            if(type2=='M'){
+                io.sockets.emit('mouseMoveM',x,y);
+            }else if (type2=='E'){
+                io.sockets.emit('mouseMoveE',x,y);
+            }
+        }
+    });
+
+    socket.on('Text',function(color, str, x, y, size){
+         io.sockets.emit('addText',color, str, x, y, size);
+    });
     
 });
