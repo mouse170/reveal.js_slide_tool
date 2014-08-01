@@ -61,6 +61,16 @@ body{
 	position: absolute;
 	right: 0;
 }
+
+
+#checkServer{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	top: 120px;
+
+}
+
 #tool:hover,#marker:hover,#cursors:hover,#keyfont:hover{
 	-webkit-filter: brightness(1);
 }

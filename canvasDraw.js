@@ -14,6 +14,11 @@ var cursor = "";
 var addTextX=0;
 var addTextY=0;
 
+var isServer=false;
+
+
+var socket = io.connect('http://localhost:8124');
+
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
@@ -98,7 +103,7 @@ function mouseMoveHandle(e){
 function addin(e){	
 	if(e.keyCode==13){
 		var str = addText.value;
-		text("#fff",str,addTextX,addTextY,20);
+		text("#fff",str,addTextX,addTextY,"1.5em");
 		addText.value='';
 		textbg.style.display="none";
 		addText.focus();
@@ -145,6 +150,10 @@ function useMarker(){
 	buttonC.classList.remove('moveinY');
 	buttonT.classList.remove('moveinXY');
 	onoff=0;
+	if(isServer){
+		socket.emit('Draw',"M");
+	}
+
 }
 
 function useCursor(){
@@ -159,6 +168,9 @@ function useCursor(){
 	buttonC.classList.remove('moveinY');
 	buttonT.classList.remove('moveinXY');
 	onoff=0;
+	if(isServer){
+		socket.emit('Draw',"C");
+	}
 }
 
 function useEraser(){
@@ -166,6 +178,9 @@ function useEraser(){
 	console.log("in eraser");
 	cvs.style.cursor="url('../image/eraser.png'),default";
 	cvs.style.zIndex = 5;
+	if(isServer){
+		socket.emit('Draw',"E");
+	}
 }
 
 
@@ -185,6 +200,9 @@ function useText(){
 
 function canvasClear(){
 	ctx.clearRect(0,0,cvs.width,cvs.height);
+	if(isServer){
+		socket.emit('Draw',"AllClear");
+	}
 }
 
 function text(color,str,x,y,size){
@@ -200,3 +218,32 @@ function useAddText(){
 		isAdding=true;
 	console.log("in AddText");
 }
+
+function setServer(){
+	if(!isServer)
+		isServer=true;
+	else
+		isServer=false;
+	console.log("isServer="+ isServer);
+}
+
+socket.on('useMarker',function(a){
+	if(a && !isServer)
+		useMarker();
+});
+
+socket.on('useCursor',function(a){
+	if(a && !isServer)
+		useCursor();
+});
+
+socket.on('useEraser',function(a){
+	if(a && !isServer)
+		useEraser();
+});
+
+socket.on('canvasClear',function(a){
+	if(a && !isServer)
+		canvasClear();
+});
+// socket.on(''); 

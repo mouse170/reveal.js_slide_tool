@@ -26,4 +26,17 @@ io.sockets.on('connection', function(socket) {
     socket.on('disconnect', function() {
         io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
     });
+
+    socket.on('Draw',function(type){
+        if(type=='M')
+            io.sockets.emit('useMarker',true);
+        else if(type=='C')
+            io.sockets.emit('useCursor',true);
+        else if(type=='E')
+            io.sockets.emit('useEraser',true);
+        else if(type=='AllClear')
+            io.sockets.emit('canvasClear',true);
+    });
+
+    
 });
