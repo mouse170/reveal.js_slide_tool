@@ -83,6 +83,18 @@ function mouseMoveHandle(e){
 		}
 }
 
+// <<<<<<< HEAD
+
+// function  mouseClickHandle(e){
+//   if(isAdding){
+//   	var x = e.clientX+5;
+// 	var y = e.clientY+45;
+// 	addtextarea(x,y);
+// 	// alert(x+'+'+y);
+// 	// var str=window.prompt("想要輸入的文字");
+// 	// text("#fff",str,x,y,20);
+//   }
+// =======
 function addin(e){	
 	if(e.keyCode==13){
 		var str = addText.value;
@@ -91,6 +103,7 @@ function addin(e){
 		textbg.style.display="none";
 		addText.focus();
 	}
+// >>>>>>> ab8ec468afce16199c37247d2c170425409b14b8
 }
 
 
@@ -155,6 +168,7 @@ function useEraser(){
 	cvs.style.zIndex = 5;
 }
 
+
 function useText(){	
 	cursor="T";
 	console.log("in Text");
@@ -177,4 +191,12 @@ function text(color,str,x,y,size){
     ctx.fillStyle=color;
     ctx.font=size+" bold 'arial'";
     ctx.fillText(str,x,y);
+}
+
+function useAddText(){
+	if(isAdding)
+		isAdding=false;
+	else
+		isAdding=true;
+	console.log("in AddText");
 }
