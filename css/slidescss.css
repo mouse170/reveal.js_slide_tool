@@ -21,7 +21,8 @@ img{
 	float: left;
 	width: 40%;
 	height: 20%;
-	overflow: auto;
+	overflow-y:auto;
+	overflow-x:hidden; 
 }
 #notefield{
 	margin: 0px 0px;
@@ -146,6 +147,32 @@ img{
   display: inline-block;
   *display: inline;
   *zoom: 1;
+}
+
+.bubble:before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 33%;
+  right: -20px;
+  width: 10px;
+  height: 0px;
+  border-width:5px;
+  border-style:solid;
+  border-color:transparent transparent transparent #44b7fa;
+}
+
+.bubbleAlt:before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 33%;
+  left: -20px;
+  width: 10px;
+  height: 0px;
+  border-width:5px;
+  border-style:solid;
+  border-color:transparent #00cc33 transparent transparent ;
 }
 
 

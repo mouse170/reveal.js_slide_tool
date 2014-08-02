@@ -86,7 +86,7 @@ function mouseMoveHandle(e){
 function addin(e){	
 	if(e.keyCode==13){
 		var str = addText.value;
-		text("#fff",str,addTextX,addTextY,20);
+		text("#fff",str,addTextX,addTextY,"20pt");
 		addText.value='';
 		textbg.style.display="none";
 		addText.focus();

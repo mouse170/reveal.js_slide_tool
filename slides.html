@@ -23,7 +23,7 @@
     });
     socket.on('chat', function(username, data) {
         var p = document.createElement('p');
-        p.innerHTML =  "<span class=\"bubbleAlt\">"+username + ': ' + data+"</span>";
+        p.innerHTML =  "<div class=\"bubbleAlt\">"+username + ': ' + data+"</div>";
         document.getElementById('chatfield').appendChild(p);
     });
     window.addEventListener('load', function() {
@@ -39,9 +39,10 @@
     <iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" style="cursor:url('image/white.png'),default;"></iframe>
     <div id="bottom_panel">
         <div id="chatfield">
-        	<span class="bubbleAlt">testesttet</span>
+        	<div class="bubbleAlt">testesttet</div>
+        	<div class="bubble">testesttet</div>
         </div>
-        <div id="inputfield">
+        <div id="inputfield"> 
             <input type="text" id="data" size="100" />
             <input type="button" id="sendtext" value="Send Text" />
         </div>
