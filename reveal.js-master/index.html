@@ -30,6 +30,8 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
+		
+		<script src="http://localhost:8124/socket.io/socket.io.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -43,6 +45,7 @@
 		<img id="eraser" src="../image/eraserB.png" onclick="useEraser()" title="橡皮擦"/>
 		<img id="keyfont" src="../image/textB.png" onclick="useText()" title="插入文字"/>
 		<img id="clear" src="../image/clearB.png" onclick="canvasClear()" title="清除"/>
+		<img id="checkServer" src="../image/clearB.png" onclick="setServer()"/>
 		<div id="textbg">
 			<input type ="text" id = "addText" tabindex="-1" autofocus="true"/>
 		</div>

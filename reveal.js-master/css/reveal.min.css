@@ -72,6 +72,15 @@ body{
 	position: absolute;
 	right: 0;
 }
+
+#checkServer{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	top: 120px;
+
+}
+
 #tool:hover,#marker:hover,#cursors:hover,#keyfont:hover,#eraser:hover,#clear:hover{
 	-webkit-filter: brightness(1);
 }
@@ -93,8 +102,8 @@ body{
 #addText{
 	outline: none;
 	border:none;
-	color: #FFF;
-	background:rgba(0%,0%,0%,0);
+	background:rgba(0%,0%,0%,0.3);
+	color:#fff;
 	position: absolute;
 	top: 0;
 	left: 0;

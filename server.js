@@ -35,10 +35,47 @@ io.sockets.on('connection', function(socket) {
     socket.on('disconnect', function() {
         io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
     });
-    socket.on('slidechanged', function(slideData) {
-        socket.broadcast.emit('slidedata', slideData);
+
+    socket.on('Draw',function(type){
+        if(type=='M')
+            io.sockets.emit('useMarker',true);
+        else if(type=='C')
+            io.sockets.emit('useCursor',true);
+        else if(type=='E')
+            io.sockets.emit('useEraser',true);
+        else if(type=='AllClear')
+            io.sockets.emit('canvasClear',true);
     });
-    socket.on('fragmentchanged', function(fragmentData) {
-        socket.broadcast.emit('fragmentdata', fragmentData);
+
+    socket.on('mouse',function(type,type2,x,y,oldW,oldH){
+        if(type=='mouseDown'){
+            io.sockets.emit('mouseDown',x,y,oldW,oldH);
+        }
+        else if(type=='mouseMove'){
+            if(type2=='M'){
+                io.sockets.emit('mouseMoveM',x,y,oldW,oldH);
+            }else if (type2=='E'){
+                io.sockets.emit('mouseMoveE',x,y,oldW,oldH);
+            }
+        }else if(type=='mousePic'){
+             io.sockets.emit('mouseMovePic',x,y,oldW,oldH);
+        }
     });
+
+    socket.on('Text',function(color, str, x, y, size,oldW,oldH){
+         io.sockets.emit('addText',color, str, x, y, size,oldW,oldH);
+    });
+
+    socket.on('isslide',function(indexh,indexv){
+         io.sockets.emit('slide',indexh,indexv);
+    });
+
+    socket.on('isslideFragment',function(type){
+         if(type=="next")
+            io.sockets.emit('next');
+        else if(type=="prev")
+            io.sockets.emit('prev');
+
+    });
+
 });
