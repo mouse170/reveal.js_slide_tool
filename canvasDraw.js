@@ -83,11 +83,6 @@ function mouseDownHandle(e) {
 		var winH = window.innerHeight;
 		var x = e.clientX;
 		var y = e.clientY;
-<<<<<<< HEAD
-		ctx.beginPath();
-		ctx.lineTo(x+5,y+43);
-		ctx.stroke();
-=======
 		Draw(x, y,winW,winH);
 		if (isServer) {
 			socket.emit('mouse','mouseDown','D',x,y,winW,winH);
@@ -95,7 +90,6 @@ function mouseDownHandle(e) {
 		// ctx.beginPath();
 		// ctx.lineTo(x,y);
 		// ctx.stroke();
->>>>>>> f649cf568496902d2fd54c6247a85d82f6ecc1f1
 	}
 }
 
@@ -144,22 +138,17 @@ function mouseMoveHandle(e) {
 	else{
 			var x = e.clientX;
 			var y = e.clientY;
-<<<<<<< HEAD
-			ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-			ctx_cursor.drawImage(image,x,y);
-		}
-}
-
-function mouseLeaveHandle(e){
-	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-=======
 			var winW = window.innerWidth;
 			var winH = window.innerHeight;
 			movePic(x,y,winW,winH);
 			if (isServer) {
 				socket.emit('mouse','mousePic','E',x,y,winW,winH);
 			}
-	}
+		}
+}
+
+function mouseLeaveHandle(e){
+	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
 }
 
 function isDraw(x, y,oldW,oldH) {
@@ -191,7 +180,6 @@ function movePic(x,y,oldW,oldH){
 	var NewwinH = window.innerHeight;
 	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
 	ctx_cursor.drawImage(image,(NewwinW/oldW)*x,(NewwinH/oldH)*y);
->>>>>>> f649cf568496902d2fd54c6247a85d82f6ecc1f1
 }
 
 // <<<<<<< HEAD
