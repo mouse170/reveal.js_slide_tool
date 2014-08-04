@@ -3,6 +3,7 @@ var ctx = cvs.getContext('2d');
 var cvs_cursor = document.getElementById('canvas_cursor');
 var ctx_cursor = cvs_cursor.getContext('2d');
 
+var buttonTs = document.getElementById('tool');
 var buttonM = document.getElementById('marker');
 var buttonC = document.getElementById('cursors');
 var buttonE = document.getElementById('eraser');
@@ -240,6 +241,12 @@ function expandTool() {
 			buttonM.classList.remove('moveinX');
 			buttonC.classList.remove('moveinY');
 			buttonT.classList.remove('moveinXY');
+			setTimeout(
+			function(){
+				buttonM.style.display="none";
+				buttonC.style.display="none";
+				buttonT.style.display="none";
+			},1000);
 			onoff = 0;
 		}
 }
@@ -255,6 +262,12 @@ function useMarker(){
 	buttonM.classList.remove('moveinX');
 	buttonC.classList.remove('moveinY');
 	buttonT.classList.remove('moveinXY');
+	setTimeout(
+			function(){
+				buttonM.style.display="none";
+				buttonC.style.display="none";
+				buttonT.style.display="none";
+			},1000);
 	onoff = 0;
 	if (isServer) {
 		socket.emit('Draw', "M");
@@ -274,6 +287,12 @@ function useCursor(){
 	buttonM.classList.remove('moveinX');
 	buttonC.classList.remove('moveinY');
 	buttonT.classList.remove('moveinXY');
+	setTimeout(
+			function(){
+				buttonM.style.display="none";
+				buttonC.style.display="none";
+				buttonT.style.display="none";
+			},1000);
 	onoff = 0;
 	if (isServer) {
 		socket.emit('Draw', "C");
@@ -304,6 +323,12 @@ function useText() {
 	buttonM.classList.remove('moveinX');
 	buttonC.classList.remove('moveinY');
 	buttonT.classList.remove('moveinXY');
+	setTimeout(
+			function(){
+				buttonM.style.display="none";
+				buttonC.style.display="none";
+				buttonT.style.display="none";
+			},1000);
 	onoff = 0;
 }
 
@@ -331,10 +356,34 @@ function useAddText() {
 }
 
 function setServer() {
-	if (!isServer)
+	if (!isServer){
 		isServer = true;
-	else
+		buttonTs.style.display="inline-block";
+		buttonCc.style.display="inline-block";
+		buttonE.style.display="inline-block";
+		buttonTs.classList.remove('fadeout');
+		buttonCc.classList.remove('fadeout');
+		buttonE.classList.remove('fadeout');
+		buttonTs.classList.add('fadein');
+		buttonCc.classList.add('fadein');
+		buttonE.classList.add('fadein');
+	}
+
+	else{
 		isServer = false;
+		buttonTs.classList.remove('fadein');
+		buttonCc.classList.remove('fadein');
+		buttonE.classList.remove('fadein');
+		buttonTs.classList.add('fadeout');
+		buttonCc.classList.add('fadeout');
+		buttonE.classList.add('fadeout');
+		setTimeout(
+			function(){
+				buttonTs.style.display="none";
+				buttonCc.style.display="none";
+				buttonE.style.display="none";
+			},1000);
+	}
 	console.log("isServer=" + isServer);
 }
 
