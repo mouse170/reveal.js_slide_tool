@@ -39,33 +39,26 @@
 <body>
     <iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" style="cursor:url('image/white.png'),default;"></iframe>
     <div id="bottom_panel">
-        <div id="chatfield">
-<!-- <<<<<<< HEAD -->
-        	<div class="bubbleAlt">testesttet</div>
-        	<div class="bubble">testesttet</div>
-<!-- =======
-            <span class="tag"><p>ChatRoom</p></span>
-            <div class="bubble">testetest</div>
-            <div class="bubble-alt">這段是中文</div>
-            <div class="bubble">testetest</div>
-            <div class="bubble">這段是中文，你媽知道你在這裡發廢文嗎?</div>
-            <div class="bubble">testetest</div>
-            <div class="bubble-alt">這段是中文</div>
-            <div class="bubble">testetest</div>
-            <div class="bubble-alt">這段是中文</div>     
-        	<span class="bubbleAlt">testesttet</span>
->>>>>>> 536268e75ebd2bec3671d16bfcaf76afaacf5f72 -->
-        </div>
-        <div id="inputfield"> 
-            <input type="text" id="data" size="100" />
-            <input type="button" id="sendtext" value="Send Text" />
+        <div id="leftfield">
+            <div id="chatfield">
+                <div class="bubbleAlt">testesttet</div>
+                <div class="bubble">testesttet</div>
+                <div class="bubbleAlt">testesttet</div>
+                <div class="bubble">testesttet</div>
+                <div class="bubbleAlt">testesttet</div>
+                <div class="bubble">testesttet</div>
+                <div class="bubbleAlt">testesttet</div>
+                <div class="bubble">testesttet</div>
+            </div>
+            <div id="inputfield"> 
+                    <input type="text" id="data" size="90%"/>
+                    <input type="button" id="sendtext" value="Send Text" />
+            </div>
         </div>
 
         <div id="notefield">
-            <span class="tag">
-                <p>Note</p>
-            </span>
-            <textarea id="note" placeholder="會議筆記"></textarea>
+            <p id="notetag">NoteBook</p>
+            <textarea id="note"></textarea>
         </div>
     </div>
 </body>

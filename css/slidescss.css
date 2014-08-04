@@ -15,35 +15,82 @@ img{
 
 
 /*------------- bottom_panel -------------*/
-#chatfield{
-	display: inline-block;
-	margin: 0px 0px;
+#leftfield{
 	float: left;
-	width: 40%;
+	width: 50%;
 	height: 20%;
+}
+#chatfield{
+	margin: 0px 0px;
+	width: 100%;
+	height: 80%;
 	overflow-y:auto;
 	overflow-x:hidden; 
 }
 #notefield{
+	background-color: #FFFF99; 
 	margin: 0px 0px;
 	float: left;
-	width: 40%;
+	width: 50%;
 	height: 20%;
 }
 #note{
+	opacity: 0.3;
 	color: #333;
-	background-color: #fff; 
+	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
+	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 1s;
+}
+#notefield:hover #note{
+	opacity: 1;
+	color: #333;
+	background-color: #FFFF99; 
 	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
 	background-size: 100% 1.2em;
 	width: 100%;
 	height: 100%;
+	-webkit-transition: all 1s;
 }
 #inputfield{
 	margin: 0px 0px;
-	float: left;
-	width: 20%;
+	width: 100%;
 	height: 20%;
 }
+
+#notefield:hover #notetag{
+	opacity: 0;
+	-webkit-transition: all 1s;
+}
+#notetag{
+	opacity: 1;
+	position: absolute;
+	width: 50px;
+	height:20px;
+	color: #a67f48;
+	font-size: 35pt;
+	margin-left: 7%;
+	-webkit-transition: all 1s;
+}
+
+#inputText{
+	margin: 0px 0px;
+	z-index: 10;
+	position: absolute;
+}
+
+#data{
+	margin: 0px 0px;
+	width: 80%;
+}
+#sendtext{
+	margin: 0px 0px;
+	width: 19.5%;
+	border: none;
+	background: #CCC;
+}
+
 /*------------- bottom_panel end -------------*/
 
 
@@ -86,25 +133,6 @@ img{
 	right: 0;
 }
 /*------------- canvas setting & tools end -------------*/
-
-#notefield:hover .tag{
-	display: inline-block;
-}
-#chatfield:hover .tag{
-	display: inline-block;
-}
-.tag{
-	position: absolute;
-	width: 100px;
-	height: 50px;
-	text-align: center;
-	color: #fff;
-	border-radius: 50px 50px 0 0;
-	background: #a67f48;
-	margin-top: -49px;
-	display: none;
-}
-
 .bubble {
   text-align: right;
   float: right;
@@ -184,7 +212,19 @@ img{
 }
 /*Media Query ，也就是當寬度 < 320 px 時將載入下面這段 CSS :*/
  @media only screen and (max-width: 480px) {
-	#chatfield,#notefield{
+ 	#leftfield{
+ 		margin: 0px 0px;
+		display: block;
+		width: 100%;
+		height: 25%;
+ 	}
+	#chatfield{
+		margin: 0px 0px;
+		display: block;
+		width: 100%;
+		height: 80%;
+	}
+	#notefield{
 		margin: 0px 0px;
 		display: block;
 		width: 100%;
@@ -194,7 +234,7 @@ img{
 		margin: 0px 0px;
 		float: left;
 		width: 100%;
-		height: 25%;
+		height: 20%;
 		background: #ccc;
 	}
 	#input{
@@ -202,10 +242,22 @@ img{
 		width: 100%;
 		height: 100%;
 	}
+	#inputText{
+		margin: 0px 0px;
+		z-index: 10;
+		position: absolute;
+	}
+
+	#data{
+		margin: 0px 0px;
+		width: 80%;
+	}
+	#sendtext{
+		margin: 0px 0px;
+		width: 19.5%;
+		border: none;
+		background: #CCC;
+	}
 }
 
 
-#inputText{
-	z-index: 10;
-	position: absolute;
-}
