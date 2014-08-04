@@ -57,6 +57,8 @@ io.sockets.on('connection', function(socket) {
             }else if (type2=='E'){
                 io.sockets.emit('mouseMoveE',x,y,oldW,oldH);
             }
+        }else if(type=='mousePic'){
+             io.sockets.emit('mouseMovePic',x,y,oldW,oldH);
         }
     });
 

@@ -137,8 +137,12 @@ function mouseMoveHandle(e) {
 	else{
 			var x = e.clientX;
 			var y = e.clientY;
-			ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-			ctx_cursor.drawImage(image,x,y);
+			var winW = window.innerWidth;
+			var winH = window.innerHeight;
+			movePic(x,y,winW,winH);
+			if (isServer) {
+				socket.emit('mouse','mousePic','E',x,y,winW,winH);
+			}
 	}
 }
 
@@ -164,6 +168,13 @@ function isEraser(x,y,oldW,oldH){
 	ctx.strokeStyle = "rgba(250,250,250,0)"; //使用颜色值为白色，透明为0的颜色填充
 	ctx.fill();
 	ctx.globalCompositeOperation = "source-over"
+}
+
+function movePic(x,y,oldW,oldH){
+	var NewwinW = window.innerWidth;
+	var NewwinH = window.innerHeight;
+	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
+	ctx_cursor.drawImage(image,(NewwinW/oldW)*x,(NewwinH/oldH)*y);
 }
 
 // <<<<<<< HEAD
@@ -353,6 +364,11 @@ socket.on('mouseMoveM',function(x,y,oldW,oldH){
 socket.on('mouseMoveE',function(x,y,oldW,oldH){
 	if(!isServer)
 		isEraser(x,y,oldW,oldH);
+});
+
+socket.on('mouseMovePic',function(x,y,oldW,oldH){
+	if(!isServer)
+		movePic(x,y,oldW,oldH);
 });
 
 socket.on('addText',function(color, str, x, y, size,oldW,oldH){
