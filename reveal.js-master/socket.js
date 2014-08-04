@@ -8,6 +8,7 @@ Reveal.addEventListener('slidechanged', function(event) {
 	var searchpresent = document.getElementsByClassName("present");
 	var searchVideo = searchpresent[0].getElementsByClassName("stretch");
 	if(searchVideo.length!=0){
+		
 		alert("發現影片");
 	}
 	// alert(isServer);
