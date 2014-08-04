@@ -12,6 +12,15 @@ function handler(req, res) {
         res.writeHead(200);
         res.end(data);
     });
+    fs.readFile(__dirname + '/reveal.js-master/index.html', function(err, data) {
+        if (err) {
+            res.writeHead(500);
+            return res.end('Error loading reveal.js');
+        }
+        res.writeHead(200);
+        res.end(data);
+    });
+
 }
 io.sockets.on('connection', function(socket) {
     socket.on('addme', function(username) {

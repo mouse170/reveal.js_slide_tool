@@ -1,7 +1,7 @@
 var cvs = document.getElementById('canvas');
 var ctx = cvs.getContext('2d');
 
-Reveal.addEventListener( 'slidechanged', function( event ) {
+Reveal.addEventListener('slidechanged', function(event) {
     // alert(event.indexh);  //X軸頁數
     // alert(event.indexv);  //Y軸頁數
 	ctx.clearRect(0,0,cvs.width,cvs.height);
@@ -9,18 +9,20 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
 	if(isServer){
 		socket.emit('isslide',event.indexh,event.indexv);
 	}
-} );
+});
 
 
 
-Reveal.addEventListener( 'fragmentshown', function( event ) {
+Reveal.addEventListener('fragmentshown', function(event) {
     // event.fragment = the fragment DOM element
     // alert("偵測到按下");
     // alert(event.indexf);  //Y軸頁數
     if(isServer){
 		socket.emit('isslideFragment',"next");
 	}
-} );
+});
+
+
 Reveal.addEventListener( 'fragmenthidden', function( event ) {
     // event.fragment = the fragment DOM element
     // alert("偵測到按上");
@@ -28,7 +30,7 @@ Reveal.addEventListener( 'fragmenthidden', function( event ) {
     if(isServer){
 		socket.emit('isslideFragment',"prev");
 	}
-} );
+});
 
 
 socket.on('slide',function(indexh,indexv){

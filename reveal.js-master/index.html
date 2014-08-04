@@ -49,11 +49,12 @@
 		<div id="textbg">
 			<input type ="text" id = "addText" tabindex="-1" autofocus="true"/>
 		</div>
-		<canvas id="canvas" style="cursor: url('../image/micky.png'),default;"></canvas>
+		<canvas id="canvas_cursor" style="cursor: none;"></canvas>
+		<canvas id="canvas" style="cursor: nonet;"></canvas>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+			<div class="slides" id="slide_control">
 				<section data-background="#8c4738">
 					<h2>技術學習心得報告</h2>
 					<h3>No pain no gain(?)</h3>
@@ -561,8 +562,6 @@ function linkify( selector ) {
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'socket.io/socket.io.js', async: true },
-					{ src: 'plugin/notes-server/client.js', async: true },
             // Remote control your reveal.js presentation using a touch device
             		{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
@@ -571,7 +570,10 @@ function linkify( selector ) {
 		</script>
 
 		<script type="text/javascript" src="../canvasDraw.js"></script>
+		<script type="text/javascript" src="http://localhost:8124/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="socket.js"></script>
+
+
 		 <script> 
 	      // function writeMessage(canvas, message) {
 	      //   var context = canvas.getContext('2d');
