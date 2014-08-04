@@ -54,5 +54,17 @@ io.sockets.on('connection', function(socket) {
     socket.on('Text',function(color, str, x, y, size,oldW,oldH){
          io.sockets.emit('addText',color, str, x, y, size,oldW,oldH);
     });
-    
+
+    socket.on('isslide',function(indexh,indexv){
+         io.sockets.emit('slide',indexh,indexv);
+    });
+
+    socket.on('isslideFragment',function(type){
+         if(type=="next")
+            io.sockets.emit('next');
+        else if(type=="prev")
+            io.sockets.emit('prev');
+
+    });
+
 });
