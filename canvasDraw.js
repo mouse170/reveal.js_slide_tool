@@ -19,13 +19,10 @@ var candraw = false;
 var cursor = "C";
 var addTextX=0;
 var addTextY=0;
-
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
-cvs_cursor.addEventListener('mouseup',mouseUpHandle,false);
-cvs_cursor.addEventListener('mousedown',mouseDownHandle,false);
-cvs_cursor.addEventListener('mousemove',mouseMoveHandle,false);
+
 addText.addEventListener('keydown',addin,false);
 
 window.onload = function(){
@@ -33,7 +30,11 @@ window.onload = function(){
 	cvs.width = s.width;
 	cvs.height = s.height;
 	cvs_cursor.width = s.width;
-	cvs_cursor.height = s.height;   
+	cvs_cursor.height = s.height;
+	cvs_cursor.addEventListener('mouseup',mouseUpHandle,false);
+	cvs_cursor.addEventListener('mousedown',mouseDownHandle,false);
+	cvs_cursor.addEventListener('mousemove',mouseMoveHandle,false);
+	cvs_cursor.addEventListener('mouseleave',mouseLeaveHandle,false);   
 }
 window.onresize = function(){
 	var s = document.body.getBoundingClientRect();
@@ -69,7 +70,7 @@ function mouseDownHandle(e){
 		var x = e.clientX;
 		var y = e.clientY;
 		ctx.beginPath();
-		ctx.lineTo(x,y);
+		ctx.lineTo(x+5,y+43);
 		ctx.stroke();
 	}
 }
@@ -104,7 +105,10 @@ function mouseMoveHandle(e){
 			ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
 			ctx_cursor.drawImage(image,x,y);
 		}
+}
 
+function mouseLeaveHandle(e){
+	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
 }
 
 // <<<<<<< HEAD
