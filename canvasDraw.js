@@ -24,13 +24,10 @@ var isServer = false;
 var cursor = "C";
 var addTextX=0;
 var addTextY=0;
-
 cvs.addEventListener('mouseup',mouseUpHandle,false);
 cvs.addEventListener('mousedown',mouseDownHandle,false);
 cvs.addEventListener('mousemove',mouseMoveHandle,false);
-cvs_cursor.addEventListener('mouseup',mouseUpHandle,false);
-cvs_cursor.addEventListener('mousedown',mouseDownHandle,false);
-cvs_cursor.addEventListener('mousemove',mouseMoveHandle,false);
+
 addText.addEventListener('keydown',addin,false);
 
 
@@ -46,7 +43,11 @@ window.onload = function() {
 	cvs.width = s.width;
 	cvs.height = s.height;
 	cvs_cursor.width = s.width;
-	cvs_cursor.height = s.height;   
+	cvs_cursor.height = s.height;
+	cvs_cursor.addEventListener('mouseup',mouseUpHandle,false);
+	cvs_cursor.addEventListener('mousedown',mouseDownHandle,false);
+	cvs_cursor.addEventListener('mousemove',mouseMoveHandle,false);
+	cvs_cursor.addEventListener('mouseleave',mouseLeaveHandle,false);   
 }
 
 window.onresize = function() {
@@ -143,7 +144,11 @@ function mouseMoveHandle(e) {
 			if (isServer) {
 				socket.emit('mouse','mousePic','E',x,y,winW,winH);
 			}
-	}
+		}
+}
+
+function mouseLeaveHandle(e){
+	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
 }
 
 function isDraw(x, y,oldW,oldH) {
