@@ -36,19 +36,12 @@ body{
 	height: 80%;
 	border:0px;
 }
+
+/*左側工具按鈕*/
 #tool{
 	z-index: 11;
 	position: absolute;
 	left: 0;
-}
-#tool,#eraser,#clear{
-	-webkit-filter: brightness(0.5);
-}
-#cursors,#marker,#keyfont{
-	-webkit-filter: brightness(0.5);
-	display: none;
-	z-index: 10;
-	position: absolute;
 }
 #marker{
 	top: 0;
@@ -63,33 +56,45 @@ body{
 	left: 55px;
 }
 
+/*右側工具按鈕*/
 #eraser{
 	z-index: 10;
 	position: absolute;
 	right: 0;
-	top: 60px;
+	top: 120px;
 }
 #clear{
 	z-index: 10;
 	position: absolute;
 	right: 0;
+	top: 60px;
 }
-
 #checkServer{
 	z-index: 10;
 	position: absolute;
 	right: 0;
-	top: 120px;
-
+	top: 0px;
+}
+/*按鈕之顯示*/
+#tool,#eraser,#clear{
+	-webkit-filter: brightness(0.5);
+	display: none;
+	opacity: 0;
+	
+}
+#cursors,#marker,#keyfont{
+	-webkit-filter: brightness(0.5);
+	display: none;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
 }
 
 #tool:hover,#marker:hover,#cursors:hover,#keyfont:hover,#eraser:hover,#clear:hover{
 	-webkit-filter: brightness(1);
 }
-#tool:active,#marker:active,#cursors:active,#keyfont:active{
 
-}
-
+/*插入文字*/
 #textbg{
 	position: absolute;
 	margin: 0 auto;
@@ -109,6 +114,17 @@ body{
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+
+/*主控鈕淡入淡出*/
+.fadein{
+  -webkit-animation: fadein 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.fadeout{
+  -webkit-animation: fadeout 0.5s 1;
+  -webkit-animation-fill-mode: both;
 }
 
 
@@ -241,4 +257,29 @@ body{
   100% {
     opacity: 0;
   }
+}
+
+@-webkit-keyframes fadein {
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 0.5;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.5;
+
+	}
+	100%{
+		opacity: 0;
+	}
 }
