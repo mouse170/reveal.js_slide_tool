@@ -16,6 +16,7 @@
     <!-- websocket_chat -->
     <!-- <script src="ws/client.js"></script> -->
     <script src="http://localhost:8124/socket.io/socket.io.js"></script>
+    <script type="text/javascript"src="./scroll.js"></script>
     <script>
     var socket = io.connect('http://localhost:8124', {'force new connection': true});
     socket.on('connect', function() {
@@ -52,7 +53,7 @@
             </div>
             <div id="inputfield"> 
                     <input type="text" id="data" size="90%"/>
-                    <input type="button" id="sendtext" value="Send" />
+                    <input type="button" id="sendtext" value="Send" onclick="scrolldown()"/>
             </div>
         </div>
 

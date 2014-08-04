@@ -63,33 +63,35 @@ function mouseUpHandle(e) {
 }
 
 function mouseDownHandle(e) {
-	buttonM.classList.add('moveoutX');
-	buttonC.classList.add('moveoutY');
-	buttonT.classList.add('moveoutXY');
-	buttonM.classList.remove('moveinX');
-	buttonC.classList.remove('moveinY');
-	buttonT.classList.remove('moveinXY');
-	onoff = 0;
+	if(isServer){
+		buttonM.classList.add('moveoutX');
+		buttonC.classList.add('moveoutY');
+		buttonT.classList.add('moveoutXY');
+		buttonM.classList.remove('moveinX');
+		buttonC.classList.remove('moveinY');
+		buttonT.classList.remove('moveinXY');
+		onoff = 0;
 
-	if (cursor == "T") {
-		textbg.style.display = "inline-block";
-		addTextX = e.clientX;
-		addTextY = e.clientY;
-		console.log(addText);
-		addText.style.top=addTextY+'px';
-		addText.style.left=addTextX+'px';
-	} else {
-		var winW = window.innerWidth;
-		var winH = window.innerHeight;
-		var x = e.clientX;
-		var y = e.clientY;
-		Draw(x, y,winW,winH);
-		if (isServer) {
-			socket.emit('mouse','mouseDown','D',x,y,winW,winH);
+		if (cursor == "T") {
+			textbg.style.display = "inline-block";
+			addTextX = e.clientX;
+			addTextY = e.clientY;
+			console.log(addText);
+			addText.style.top=addTextY+'px';
+			addText.style.left=addTextX+'px';
+		} else {
+			var winW = window.innerWidth;
+			var winH = window.innerHeight;
+			var x = e.clientX;
+			var y = e.clientY;
+			Draw(x, y,winW,winH);
+			if (isServer) {
+				socket.emit('mouse','mouseDown','D',x,y,winW,winH);
+			}
+			// ctx.beginPath();
+			// ctx.lineTo(x,y);
+			// ctx.stroke();
 		}
-		// ctx.beginPath();
-		// ctx.lineTo(x,y);
-		// ctx.stroke();
 	}
 }
 
@@ -104,51 +106,55 @@ function Draw(x, y,oldW,oldH) {
 
 
 function mouseMoveHandle(e) {
-	if (cursor == "M" && candraw == true) {
-		// console.log('draw');
-		var x = e.clientX;
-		var y = e.clientY;
-		var winW = window.innerWidth;
-		var winH = window.innerHeight;
-		ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-		isDraw(x, y,winW,winH);
-		if (isServer) {
-			socket.emit('mouse','mouseMove','M',x,y,winW,winH);
-		}
-		// ctx.lineWidth='7px';
-		// ctx.strokeStyle="#ffcc33";
-		// ctx.lineTo(x,y);
-		// ctx.stroke();
-	} else if (cursor == "E" && candraw == true) {
-		console.log('clear part');
-		var x = e.clientX;
-		var y = e.clientY;
-		var winW = window.innerWidth;
-		var winH = window.innerHeight;
-		isEraser(x,y,winW,winH);
-		if (isServer) {
-			socket.emit('mouse','mouseMove','E',x,y,winW,winH);
-		}
-		// ctx.globalCompositeOperation = "destination-out";
-		// ctx.arc(x, y, 10, 0, Math.PI * 2);
-		// ctx.strokeStyle = "rgba(250,250,250,0)"; //使用颜色值为白色，透明为0的颜色填充
-		// ctx.fill();
-		// ctx.globalCompositeOperation = "source-over"
-	}
-	else{
+	if(isServer){
+		if (cursor == "M" && candraw == true) {
+			// console.log('draw');
 			var x = e.clientX;
 			var y = e.clientY;
 			var winW = window.innerWidth;
 			var winH = window.innerHeight;
-			movePic(x,y,winW,winH);
+			ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
+			isDraw(x, y,winW,winH);
 			if (isServer) {
-				socket.emit('mouse','mousePic','E',x,y,winW,winH);
+				socket.emit('mouse','mouseMove','M',x,y,winW,winH);
 			}
+			// ctx.lineWidth='7px';
+			// ctx.strokeStyle="#ffcc33";
+			// ctx.lineTo(x,y);
+			// ctx.stroke();
+		} else if (cursor == "E" && candraw == true) {
+			console.log('clear part');
+			var x = e.clientX;
+			var y = e.clientY;
+			var winW = window.innerWidth;
+			var winH = window.innerHeight;
+			isEraser(x,y,winW,winH);
+			if (isServer) {
+				socket.emit('mouse','mouseMove','E',x,y,winW,winH);
+			}
+			// ctx.globalCompositeOperation = "destination-out";
+			// ctx.arc(x, y, 10, 0, Math.PI * 2);
+			// ctx.strokeStyle = "rgba(250,250,250,0)"; //使用颜色值为白色，透明为0的颜色填充
+			// ctx.fill();
+			// ctx.globalCompositeOperation = "source-over"
 		}
+		else{
+				var x = e.clientX;
+				var y = e.clientY;
+				var winW = window.innerWidth;
+				var winH = window.innerHeight;
+				movePic(x,y,winW,winH);
+				if (isServer) {
+					socket.emit('mouse','mousePic','E',x,y,winW,winH);
+				}
+			}
+	}
 }
 
 function mouseLeaveHandle(e){
-	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
+	if(isServer){
+		ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
+	}
 }
 
 function isDraw(x, y,oldW,oldH) {
@@ -215,27 +221,27 @@ function addin(e) {
 
 
 function expandTool() {
-	if (onoff == 0) {
-		console.log("tools");
-		buttonM.style.display = "inline-block";
-		buttonC.style.display = "inline-block";
-		buttonT.style.display = "inline-block";
-		buttonM.classList.remove('moveoutX');
-		buttonC.classList.remove('moveoutY');
-		buttonT.classList.remove('moveoutXY');
-		buttonM.classList.add('moveinX');
-		buttonC.classList.add('moveinY');
-		buttonT.classList.add('moveinXY');
-		onoff = 1;
-	} else {
-		buttonM.classList.add('moveoutX');
-		buttonC.classList.add('moveoutY');
-		buttonT.classList.add('moveoutXY');
-		buttonM.classList.remove('moveinX');
-		buttonC.classList.remove('moveinY');
-		buttonT.classList.remove('moveinXY');
-		onoff = 0;
-	}
+		if (onoff == 0) {
+			console.log("tools");
+			buttonM.style.display = "inline-block";
+			buttonC.style.display = "inline-block";
+			buttonT.style.display = "inline-block";
+			buttonM.classList.remove('moveoutX');
+			buttonC.classList.remove('moveoutY');
+			buttonT.classList.remove('moveoutXY');
+			buttonM.classList.add('moveinX');
+			buttonC.classList.add('moveinY');
+			buttonT.classList.add('moveinXY');
+			onoff = 1;
+		} else {
+			buttonM.classList.add('moveoutX');
+			buttonC.classList.add('moveoutY');
+			buttonT.classList.add('moveoutXY');
+			buttonM.classList.remove('moveinX');
+			buttonC.classList.remove('moveinY');
+			buttonT.classList.remove('moveinXY');
+			onoff = 0;
+		}
 }
 
 function useMarker(){
