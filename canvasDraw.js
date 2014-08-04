@@ -80,8 +80,8 @@ function mouseDownHandle(e) {
 	} else {
 		var winW = window.innerWidth;
 		var winH = window.innerHeight;
-		var x = event.clientX;
-		var y = event.clientY;
+		var x = e.clientX;
+		var y = e.clientY;
 		Draw(x, y,winW,winH);
 		if (isServer) {
 			socket.emit('mouse','mouseDown','D',x,y,winW,winH);
@@ -97,7 +97,7 @@ function Draw(x, y,oldW,oldH) {
 	var NewwinH = window.innerHeight;
 	candraw = true;
 	ctx.beginPath();
-	ctx.lineTo((NewwinW/oldW)*x, (NewwinH/oldH)*y);
+	ctx.lineTo((NewwinW/oldW)*(x+5), (NewwinH/oldH)*(y+43));
 	ctx.stroke();
 }
 
@@ -144,13 +144,13 @@ function mouseMoveHandle(e) {
 
 function isDraw(x, y,oldW,oldH) {
 	console.log('draw');
-	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-	ctx_cursor.drawImage(image,x,y);
 	var NewwinW = window.innerWidth;
 	var NewwinH = window.innerHeight;
+	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
+	ctx_cursor.drawImage(image,(NewwinW/oldW)*x,(NewwinH/oldH)*y);
 	ctx.lineWidth = '7px';
 	ctx.strokeStyle = "#ffcc33";
-	ctx.lineTo((NewwinW/oldW)*x+5, (NewwinH/oldH)*y+43);
+	ctx.lineTo((NewwinW/oldW)*(x+5), (NewwinH/oldH)*(y+43));
 	ctx.stroke();
 }
 
@@ -158,9 +158,9 @@ function isEraser(x,y,oldW,oldH){
 	var NewwinW = window.innerWidth;
 	var NewwinH = window.innerHeight;
 	ctx_cursor.clearRect(0,0,cvs_cursor.width,cvs_cursor.height);
-	ctx_cursor.drawImage(image,x,y);
+	ctx_cursor.drawImage(image,(NewwinW/oldW)*x, (NewwinH/oldH)*y);
 	ctx.globalCompositeOperation = "destination-out";
-	ctx.arc((NewwinW/oldW)*x+5, (NewwinH/oldH)*y+43, 10, 0, Math.PI * 2);
+	ctx.arc((NewwinW/oldW)*(x+5), (NewwinH/oldH)*(y+43), 10, 0, Math.PI * 2);
 	ctx.strokeStyle = "rgba(250,250,250,0)"; //使用颜色值为白色，透明为0的颜色填充
 	ctx.fill();
 	ctx.globalCompositeOperation = "source-over"
