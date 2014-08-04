@@ -32,7 +32,7 @@ cvs.addEventListener('mousemove',mouseMoveHandle,false);
 addText.addEventListener('keydown',addin,false);
 
 
-var socket = io.connect('http://git.cc.swd:8124');
+var socket = io.connect('http://localhost:8124');
 
 cvs.addEventListener('mouseup', mouseUpHandle, false);
 cvs.addEventListener('mousedown', mouseDownHandle, false);
