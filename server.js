@@ -38,21 +38,21 @@ io.sockets.on('connection', function(socket) {
             io.sockets.emit('canvasClear',true);
     });
 
-    socket.on('mouse',function(type,type2,x,y){
+    socket.on('mouse',function(type,type2,x,y,oldW,oldH){
         if(type=='mouseDown'){
-            io.sockets.emit('mouseDown',x,y);
+            io.sockets.emit('mouseDown',x,y,oldW,oldH);
         }
         else if(type=='mouseMove'){
             if(type2=='M'){
-                io.sockets.emit('mouseMoveM',x,y);
+                io.sockets.emit('mouseMoveM',x,y,oldW,oldH);
             }else if (type2=='E'){
-                io.sockets.emit('mouseMoveE',x,y);
+                io.sockets.emit('mouseMoveE',x,y,oldW,oldH);
             }
         }
     });
 
-    socket.on('Text',function(color, str, x, y, size){
-         io.sockets.emit('addText',color, str, x, y, size);
+    socket.on('Text',function(color, str, x, y, size,oldW,oldH){
+         io.sockets.emit('addText',color, str, x, y, size,oldW,oldH);
     });
     
 });

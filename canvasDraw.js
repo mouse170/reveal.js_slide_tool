@@ -54,16 +54,18 @@ function mouseDownHandle(e) {
 		addTextX = e.clientX;
 		addTextY = e.clientY + 5;
 		console.log(addText);
+		addText.focus();
 		addText.style.top = addTextY + 'px';
 		addText.style.left = addTextX + 'px';
-		addText.focus();
 	} else {
 		// candraw=true;
+		var winW = window.innerWidth;
+		var winH = window.innerHeight;
 		var x = event.clientX + 5;
 		var y = event.clientY + 45;
-		Draw(x, y);
+		Draw(x, y,winW,winH);
 		if (isServer) {
-			socket.emit('mouse','mouseDown','D',x,y);
+			socket.emit('mouse','mouseDown','D',x,y,winW,winH);
 		}
 		// ctx.beginPath();
 		// ctx.lineTo(x,y);
@@ -71,10 +73,12 @@ function mouseDownHandle(e) {
 	}
 }
 
-function Draw(x, y) {
+function Draw(x, y,oldW,oldH) {
+	var NewwinW = window.innerWidth;
+	var NewwinH = window.innerHeight;
 	candraw = true;
 	ctx.beginPath();
-	ctx.lineTo(x, y);
+	ctx.lineTo((NewwinW/oldW)*x, (NewwinH/oldH)*y);
 	ctx.stroke();
 }
 
@@ -84,9 +88,11 @@ function mouseMoveHandle(e) {
 		// console.log('draw');
 		var x = e.clientX + 5;
 		var y = e.clientY + 45;
-		isDraw(x, y);
+		var winW = window.innerWidth;
+		var winH = window.innerHeight;
+		isDraw(x, y,winW,winH);
 		if (isServer) {
-			socket.emit('mouse','mouseMove','M',x,y);
+			socket.emit('mouse','mouseMove','M',x,y,winW,winH);
 		}
 		// ctx.lineWidth='7px';
 		// ctx.strokeStyle="#ffcc33";
@@ -96,9 +102,11 @@ function mouseMoveHandle(e) {
 		console.log('clear part');
 		var x = e.clientX + 5;
 		var y = e.clientY + 45;
-		isEraser(x,y);
+		var winW = window.innerWidth;
+		var winH = window.innerHeight;
+		isEraser(x,y,winW,winH);
 		if (isServer) {
-			socket.emit('mouse','mouseMove','E',x,y);
+			socket.emit('mouse','mouseMove','E',x,y,winW,winH);
 		}
 		// ctx.globalCompositeOperation = "destination-out";
 		// ctx.arc(x, y, 10, 0, Math.PI * 2);
@@ -108,18 +116,21 @@ function mouseMoveHandle(e) {
 	}
 }
 
-function isDraw(x, y) {
+function isDraw(x, y,oldW,oldH) {
 	console.log('draw');
+	var NewwinW = window.innerWidth;
+	var NewwinH = window.innerHeight;
 	ctx.lineWidth = '7px';
 	ctx.strokeStyle = "#ffcc33";
-	ctx.lineTo(x, y);
+	ctx.lineTo((NewwinW/oldW)*x, (NewwinH/oldH)*y);
 	ctx.stroke();
 }
 
-function isEraser(x,y){
-
+function isEraser(x,y,oldW,oldH){
+	var NewwinW = window.innerWidth;
+	var NewwinH = window.innerHeight;
 	ctx.globalCompositeOperation = "destination-out";
-	ctx.arc(x, y, 10, 0, Math.PI * 2);
+	ctx.arc((NewwinW/oldW)*x, (NewwinH/oldH)*y, 10, 0, Math.PI * 2);
 	ctx.strokeStyle = "rgba(250,250,250,0)"; //使用颜色值为白色，透明为0的颜色填充
 	ctx.fill();
 	ctx.globalCompositeOperation = "source-over"
@@ -140,12 +151,16 @@ function isEraser(x,y){
 function addin(e) {
 	if (e.keyCode == 13) {
 		var str = addText.value;
-		text("#fff", str, addTextX, addTextY, "1.5em");
+		var winW = window.innerWidth;
+		var winH = window.innerHeight;
+		text("#fff", str, addTextX, addTextY, 1.5,winW,winH);
 		addText.value = '';
 		textbg.style.display = "none";
 		addText.focus();
 		if(isServer){
-			socket.emit('Text', "#fff", str, addTextX, addTextY, "1.5em");
+			var winW = window.innerWidth;
+			var winH = window.innerHeight;
+			socket.emit('Text', "#fff", str, addTextX, addTextY, 1.5,winW,winH);
 		}
 	}
 	// >>>>>>> ab8ec468afce16199c37247d2c170425409b14b8
@@ -244,10 +259,12 @@ function canvasClear() {
 	}
 }
 
-function text(color, str, x, y, size) {
+function text(color, str, x, y, size,oldW,oldH) {
+	var NewwinW = window.innerWidth;
+	var NewwinH = window.innerHeight;
 	ctx.fillStyle = color;
-	ctx.font = size + " bold 'arial'";
-	ctx.fillText(str, x, y);
+	ctx.font = (NewwinW*NewwinH)/(oldW*oldH)*size+"em" + " bold 'arial'";
+	ctx.fillText(str, (NewwinW/oldW)*x, (NewwinH/oldH)*y);
 }
 
 function useAddText() {
@@ -290,22 +307,22 @@ socket.on('canvasClear', function(a) {
 });
 
 
-socket.on('mouseDown',function(x,y){
+socket.on('mouseDown',function(x,y,oldW,oldH){
 	if(!isServer)
-		Draw(x,y);
+		Draw(x,y,oldW,oldH);
 });
 
-socket.on('mouseMoveM',function(x,y){
+socket.on('mouseMoveM',function(x,y,oldW,oldH){
 	if(!isServer)
-		isDraw(x,y);
+		isDraw(x,y,oldW,oldH);
 });
 
-socket.on('mouseMoveE',function(x,y){
+socket.on('mouseMoveE',function(x,y,oldW,oldH){
 	if(!isServer)
-		isEraser(x,y);
+		isEraser(x,y,oldW,oldH);
 });
 
-socket.on('addText',function(color, str, x, y, size){
+socket.on('addText',function(color, str, x, y, size,oldW,oldH){
 	if(!isServer)
-		text(color, str, x, y, size);
+		text(color, str, x, y, size,oldW,oldH);
 });
