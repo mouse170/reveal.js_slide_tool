@@ -30,6 +30,7 @@
             p.innerHTML =  "<div class=\"bubbleAlt\">"+username + ': ' + data+"</div>";
             document.getElementById('chatfield').appendChild(p);
             setScrollbar();
+            hint();
         }
     });
     window.addEventListener('load', function() {
@@ -83,6 +84,15 @@
                     data.value='';
                 }, 100); 
             }
+      }
+      function hint(){
+            var title = document.getElementById('lefttag_title');
+            title.style.color="red";
+            title.innerHTML = 'NewMessage!!!';
+            setTimeout(function(){
+                title.style.color="#a67f48";
+                title.innerHTML = 'IHaveAQuestion';
+            },1000);
       }
       function enterkey(e){
             if(e.keyCode==13){
