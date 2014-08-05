@@ -435,3 +435,18 @@ socket.on('addText',function(color, str, x, y, size,oldW,oldH){
 	if(!isServer)
 		text(color, str, x, y, size,oldW,oldH);
 });
+
+
+socket.on('RemoteSlide',function(type){
+	if(isServer){
+		if(type=="up"){
+            Reveal.left();
+        }else if(type=="down"){
+            Reveal.right();
+        }else if(type=="left"){
+            Reveal.prev();
+        }else if(type=="right"){
+            Reveal.next();
+        }
+	}
+});

@@ -87,4 +87,18 @@ io.sockets.on('connection', function(socket) {
             io.sockets.emit('PlayCanvas',video);
     });
 
+
+    socket.on('Remote',function(type){
+            io.sockets.emit('RemoteSlide',type);
+
+            // if(type=="up"){
+            //      io.sockets.emit('RemoteSlide',"up");
+            // }else if(type=="down"){
+            //     io.sockets.emit('RemoteSlide',"down");
+            // }else if(type=="left"){
+            //     io.sockets.emit('RemoteSlide',"left");
+            // }else if(type=="right"){
+            //     io.sockets.emit('RemoteSlide',"left");
+            // }
+    });
 });
