@@ -158,19 +158,13 @@ function canvasApp() {
   theCanvas.addEventListener("mouseup",eventMouseUp, false);    
   
   setInterval(drawScreen, 33);  
-  
-  if (isServer) {
-    socket.emit('play', "play");
-  }
+// 擷取canvas的data
+imgData=context.getImageData(30,30,700,480);
 
   
 }
-socket.on('play',function(a){
-  if(a && !isServer)
-    drawScreen();
-})
-
-
+// 外部取得canvas的資訊
+var imgData;
 </script>
 
 </head>
