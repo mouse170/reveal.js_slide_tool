@@ -46,6 +46,8 @@
 		<img id="keyfont" src="../image/textB.png" onclick="useText()" title="插入文字"/>
 		<img id="clear" src="../image/clearB.png" onclick="canvasClear()" title="清除"/>
 		<img id="checkServer" src="../image/admin.png" onclick="setServer()" title="admin"/>
+		<img id="haveVideo" src="../image/admin.png" onclick="Start()" title="播放"/>
+		 <!-- <video id="video" controls ></video> -->
 		<div id="textbg">
 			<input type ="text" id = "addText" tabindex="-1" autofocus="true"/>
 		</div>
@@ -74,6 +76,7 @@
 				<section>
 				    <h2>This video will use up the remaining space on the slide</h2>
 				    <video class="stretch" src="../video2.webm"></video>
+				    <!-- <canvas class="Canvasstretch"></canvas> -->
 				</section>
 
 				<!--Day 1-->
@@ -578,6 +581,7 @@ function linkify( selector ) {
 		<script type="text/javascript" src="../canvasDraw.js"></script>
 		<script type="text/javascript" src="http://localhost:8124/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="socket.js"></script>
+		<script type="text/javascript" src="../video.js"></script>
 
 
 		 <script> 

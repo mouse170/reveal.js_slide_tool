@@ -78,4 +78,8 @@ io.sockets.on('connection', function(socket) {
 
     });
 
+    socket.on('PlayVideo',function(video){
+            io.sockets.emit('PlayCanvas',video);
+    });
+
 });

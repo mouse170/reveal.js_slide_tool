@@ -8,8 +8,22 @@ Reveal.addEventListener('slidechanged', function(event) {
 	var searchpresent = document.getElementsByClassName("present");
 	var searchVideo = searchpresent[0].getElementsByClassName("stretch");
 	if(searchVideo.length!=0){
-		
-		alert("發現影片");
+		var video = document.getElementById('haveVideo');
+		video.style.display="inline-block";
+		if(isServer){
+			// var searchCanvas= searchpresent[0].getElementsByClassName("Canvasstretch");
+			// searchpresent[0].removeChild(searchCanvas[0]);
+		}else{
+			// var searchVideo= searchpresent[0].getElementsByClassName("stretch");
+			// searchpresent[0].removeChild(searchVideo[0]);
+			// var NewCanvas= document.createElement('canvas');
+			// NewCanvas.className="stretch";
+			// searchpresent[0].appendChild(NewCanvas);
+
+		}
+	}else{
+		var video = document.getElementById('haveVideo');
+		video.style.display="none";
 	}
 	// alert(isServer);
 	if(isServer){
@@ -53,3 +67,4 @@ socket.on('prev',function(){
 	if(!isServer)
 		Reveal.prevFragment();
 });
+

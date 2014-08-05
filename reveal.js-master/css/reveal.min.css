@@ -75,6 +75,21 @@ body{
 	right: 0;
 	top: 0px;
 }
+
+#haveVideo{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 90%;
+	display: none;
+}
+
+#video{
+	z-index: 10;
+	position: absolute;
+	display: none;
+}
+
 /*按鈕之顯示*/
 #tool,#eraser,#clear{
 	-webkit-filter: brightness(0.5);
