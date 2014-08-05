@@ -80,7 +80,7 @@ body{
 	z-index: 10;
 	position: absolute;
 	left: 0;
-	top: 90%;
+	bottom:0;
 	display: none;
 }
 
