@@ -3,6 +3,8 @@ var app = require('http').createServer(handler),
     fs = require('fs');
 app.listen(8124);
 
+var Nowindexh,Nowindexv;
+
 function handler(req, res) {
     fs.readFile(__dirname + '/slides.html', function(err, data) {
         if (err) {
@@ -27,6 +29,7 @@ io.sockets.on('connection', function(socket) {
         socket.username = username;
         socket.emit('chat', 'SERVER', 'You have connected');
         socket.broadcast.emit('chat', 'SERVER', username + ' is on deck');
+        io.sockets.emit('slide',Nowindexh,Nowindexv);
     });
     socket.on('sendchat', function(data) {
         io.sockets.emit('chat', socket.username, data);
@@ -67,6 +70,8 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('isslide',function(indexh,indexv){
+         Nowindexh=indexh;
+         Nowindexv=indexv;
          io.sockets.emit('slide',indexh,indexv);
     });
 
