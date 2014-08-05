@@ -27,9 +27,10 @@
     socket.on('chat', function(username, data) {
         if(username!=addmeName){
             var p = document.createElement('p');
-            p.innerHTML =  "<div class=\"bubbleAlt\">"+username + ': ' + data+"</div>";
+            p.innerHTML =  "<div class=\"bubbleAlt\"><b>"+username + ':</b> ' + data+"</div>";
             document.getElementById('chatfield').appendChild(p);
             setScrollbar();
+            hint();
         }
     });
     window.addEventListener('load', function() {
@@ -40,7 +41,7 @@
             var text = document.getElementById('data').value;
             socket.emit('sendchat', text);
             var p = document.createElement('p');
-            p.innerHTML =  "<div class=\"bubble\">"+addmeName + ': ' + text+"</div>";
+            p.innerHTML =  "<div class=\"bubble\"><b>"+addmeName + ':</b> ' + text+"</div>";
             document.getElementById('chatfield').appendChild(p);
         }
     
@@ -55,8 +56,6 @@
             <p id="lefttag">- - - I think therefore I am.</p>
             <div id="chatbg"></div>
             <div id="chatfield">
-                <div class="bubbleAlt">testesttet</div>
-                <div class="bubble">testesttet</div>
             </div>
             <div id="inputfield"> 
                     <input type="text" id="data" size="90%"/>
@@ -83,6 +82,15 @@
                     data.value='';
                 }, 100); 
             }
+      }
+      function hint(){
+            var title = document.getElementById('lefttag_title');
+            title.style.color="red";
+            title.innerHTML = 'NewMessage!!!';
+            setTimeout(function(){
+                title.style.color="#a67f48";
+                title.innerHTML = 'IHaveAQuestion';
+            },1000);
       }
       function enterkey(e){
             if(e.keyCode==13){

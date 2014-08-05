@@ -220,9 +220,9 @@ img{
   -moz-border-radius: 10px;
   border-radius: 3px;
   box-shadow: -1px 3px 2px 0 rgba(51, 51, 102, 0.3);
-  color: #FFF;
+  color: #fff;
   margin: 3px 10px 3px 10px;
-  background: #44b7fa;
+  background: #e88c5e;
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -239,7 +239,7 @@ img{
   margin: 5px auto;
   margin-right: 30px;
   margin-left: 20px;
-  background: #00cc33;
+  background: #ef9087;
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -255,7 +255,7 @@ img{
   height: 0px;
   border-width:5px;
   border-style:solid;
-  border-color:transparent transparent transparent #44b7fa;
+  border-color:transparent transparent transparent #e88c5e;
 }
 
 .bubbleAlt:before {
@@ -268,7 +268,7 @@ img{
   height: 0px;
   border-width:5px;
   border-style:solid;
-  border-color:transparent #00cc33 transparent transparent ;
+  border-color:transparent #ef9087 transparent transparent ;
 }
 /*Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS :*/
  @media only screen and (max-width: 740px) {
@@ -330,7 +330,7 @@ img{
 		outline: none;
 		border-radius: 10px 0 0 10px;
 		margin: 0px 0px;
-		width: 80%;
+		width: 90%;
 	}
 	#sendtext{
 		outline: none;
