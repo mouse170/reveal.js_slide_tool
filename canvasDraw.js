@@ -450,3 +450,7 @@ socket.on('RemoteSlide',function(type){
         }
 	}
 });
+
+socket.on('mouseMoveAllPic',function(x,y,oldW,oldH){
+		movePic(x,y,oldW,oldH);
+});

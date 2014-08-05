@@ -62,7 +62,11 @@ io.sockets.on('connection', function(socket) {
             }
         }else if(type=='mousePic'){
              io.sockets.emit('mouseMovePic',x,y,oldW,oldH);
+        }else if(type=='mousePicAll'){
+            io.sockets.emit('mouseMoveAllPic',x,y,oldW,oldH);
         }
+
+        io.sockets.emit('NowMouseMove',x,y,oldW,oldH);
     });
 
     socket.on('Text',function(color, str, x, y, size,oldW,oldH){
@@ -90,15 +94,10 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('Remote',function(type){
             io.sockets.emit('RemoteSlide',type);
-
-            // if(type=="up"){
-            //      io.sockets.emit('RemoteSlide',"up");
-            // }else if(type=="down"){
-            //     io.sockets.emit('RemoteSlide',"down");
-            // }else if(type=="left"){
-            //     io.sockets.emit('RemoteSlide',"left");
-            // }else if(type=="right"){
-            //     io.sockets.emit('RemoteSlide',"left");
-            // }
     });
+
+    // socket.on('RemoteMoveMouse',function(x, y,oldW,oldH){
+    //         io.sockets.emit('RemoteSlide',x, y,oldW,oldH);
+    //     movePic(x,y,oldW,oldH);
+    // });
 });
