@@ -343,7 +343,7 @@ function text(color, str, x, y, size,oldW,oldH) {
 	var NewwinW = window.innerWidth;
 	var NewwinH = window.innerHeight;
 	ctx.fillStyle = color;
-	ctx.font = (NewwinW*NewwinH)/(oldW*oldH)*size+"em" + " bold 'arial'";
+	ctx.font = (NewwinW*NewwinH)/(oldW*oldH)*size+"rem" + " bold 'arial'";
 	ctx.fillText(str, (NewwinW/oldW)*x, (NewwinH/oldH)*y);
 }
 
