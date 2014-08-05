@@ -29,17 +29,20 @@
             var p = document.createElement('p');
             p.innerHTML =  "<div class=\"bubbleAlt\">"+username + ': ' + data+"</div>";
             document.getElementById('chatfield').appendChild(p);
+            setScrollbar();
         }
     });
     window.addEventListener('load', function() {
-        document.getElementById('sendtext').addEventListener('click', function() {
+        document.getElementById('sendtext').addEventListener('click',sendData, false);
+    }, false);
+
+    function sendData(){
             var text = document.getElementById('data').value;
             socket.emit('sendchat', text);
             var p = document.createElement('p');
             p.innerHTML =  "<div class=\"bubble\">"+addmeName + ': ' + text+"</div>";
             document.getElementById('chatfield').appendChild(p);
-        }, false);
-    }, false);
+        }
     
     </script>
 </head>
@@ -54,16 +57,10 @@
             <div id="chatfield">
                 <div class="bubbleAlt">testesttet</div>
                 <div class="bubble">testesttet</div>
-                <div class="bubbleAlt">testesttet</div>
-                <div class="bubble">testesttet</div>
-                <div class="bubbleAlt">testesttet</div>
-                <div class="bubble">testesttet</div>
-                <div class="bubbleAlt">testesttet</div>
-                <div class="bubble">testesttet</div>
             </div>
             <div id="inputfield"> 
                     <input type="text" id="data" size="90%"/>
-                    <input type="button" id="sendtext" value="Send" onclick="scrolldown()"/>
+                    <input type="button" id="sendtext" value="SEND"/>
             </div>
         </div>
 
@@ -73,6 +70,31 @@
             <textarea id="note"></textarea>
         </div>
     </div>
-</body>
 
+    <script type="text/javascript">
+      var data = document.getElementById('data'); 
+      var scroll = document.getElementById('chatfield'); 
+      data.addEventListener('keydown',enterkey,false);
+      function  setScrollbar(){      
+            scroll.scrollTop = scroll.scrollHeight;
+            if(data.value!=''){
+                setTimeout(function(){
+                    setScrollbar();
+                    data.value='';
+                }, 100); 
+            }
+      }
+      function enterkey(e){
+            if(e.keyCode==13){
+                sendData();
+                setScrollbar();
+            }
+      }
+       var subBtn = document.getElementById('sendtext');
+       subBtn.onclick = function(){setScrollbar();}
+       /*猜測，若將scroll的設定直接放在onload後所指的方法內，
+       取到的值可能為訊息送出前的scrollHeight，故只能捲到倒數第二行*/ 
+    </script> 
+</body>
 </html>
+   
