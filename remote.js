@@ -1,6 +1,6 @@
 var socket = io.connect('http://localhost:8124');
 var isOpen = false;
-var isStart = false;
+var isStart = true;
 
 var NowX, NowY, NowW, NowH;
 var xTime, yTime;
@@ -20,11 +20,13 @@ function slideLeft() {
 function slideRight() {
 	socket.emit('Remote', "right");
 }
-window.removeEventListener('devicemotion', test, false);
+
+window.addEventListener('devicemotion', test, false);
 
 function openGravity() {
 	if (!isOpen) {
 		isOpen = true;
+		// isStart=true;
 		document.getElementById('Gravity').classList.add('Gon');
 	}
 	else{
