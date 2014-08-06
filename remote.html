@@ -4,14 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Remote</title>
 	<script type="text/javascript" src="remote.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/remotecss.css">
 </head>
 <body>
-	<button type="button" id="up" onclick="slideUp()">左</button>
-	<button type="button" id="down" onclick="slideDown()">右</button>
-	<button type="button" id="left" onclick="slideLeft()">上</button>
-	<button type="button" id="right" onclick="slideRight()">下</button>
-	<button type="button" id="Gravity" onclick="openGravity()">開啟重力感應</button>
-	<button type="button" id="Test2" onclick="Test2()">Test</button>
+	<div id="outer">
+		<div id="control">
+			<span id="up" onclick="slideUp()"></span>
+			<span id="down" onclick="slideDown()"></span>
+			<span id="left" onclick="slideLeft()"></span>
+			<span id="right" onclick="slideRight()"></span>
+			<span id="Gravity" onclick="openGravity()"></span>
+		</div>
+	</div>
+	
+	
 <script type="text/javascript" src="http://localhost:8124/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="remote.js"></script>
 </body>
