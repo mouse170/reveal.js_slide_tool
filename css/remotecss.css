@@ -1,5 +1,8 @@
 *{
-	margin: 20px 20px ;
+	margin: 20px auto ;
+}
+body{
+	width: 360px;
 }
 #control{
 	position: absolute;
@@ -14,8 +17,8 @@
 	box-shadow:inset -2px -2px 2px 1px rgba(20%,20%,40%,0.5),inset 2px 2px 2px 1px rgba(20%,20%,40%,0.3), 0 3px 2px 1px rgba(100%,100%,100%,0.9); 
 }
 #outer{
+	display: block;
 	position: relative;
-	margin: 0 auto;
 	border-radius: 300px;
 	width: 300px;
 	height: 300px;
@@ -49,6 +52,7 @@
 	left: 0;
 	top: 50%;
 	margin-top: -20px;
+	margin-left: 20px;
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -60,6 +64,7 @@
 	right: 0;
 	top: 50%;
 	margin-top: -20px;
+	margin-right: 20px;
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -81,4 +86,35 @@
 
 span:active{
 	-webkit-filter: invert(100%);
+}
+
+#Gravity:active{
+	-webkit-filter: invert(25%);
+}
+
+.Gon{
+	-webkit-animation: Gon 1.2s infinite;
+    -webkit-animation-fill-mode: both;
+}
+
+@-webkit-keyframes Gon{
+	0%,100%{
+		background: linear-gradient(135deg,#fff,#e8e8e8,#b8b8b8);
+	}
+	10%,90%{
+		background: linear-gradient(135deg,#fff,#e6c1c1,#b8b8b8);
+	}
+	20%,80%{
+		background: linear-gradient(135deg,#fff,#e69797,#b8b8b8);
+	}
+	30%,70%{
+		background: linear-gradient(135deg,#fff,#e66767,#b8b8b8);
+	}
+	40%,60%{
+		background: linear-gradient(135deg,#fff,#e53636,#b8b8b8);
+	}
+	50%{
+		background: linear-gradient(135deg,#fff,#e50000,#b8b8b8);
+	}
+
 }
