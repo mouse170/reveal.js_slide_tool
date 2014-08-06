@@ -52,20 +52,8 @@ function test(e) {
 	// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
 	if ((e.accelerationIncludingGravity.y * 10) >= 30) {
 		NowY += (e.accelerationIncludingGravity.y * 5);
-		// if ((e.accelerationIncludingGravity.y * 10) >= 30 && (e.accelerationIncludingGravity.y * 10) < 120)
-		// 	NowY += 10;
-		// else if ((e.accelerationIncludingGravity.y * 10) >= 120 && (e.accelerationIncludingGravity.y * 10) < 260)
-		// 	NowY += 30;
-		// else if ((e.accelerationIncludingGravity.y * 10) >= 260)
-		// 	NowY += 50;
 	} else if ((e.accelerationIncludingGravity.y * 10) <= -30) {
 		NowY += (e.accelerationIncludingGravity.y * 5);
-		// if ((e.accelerationIncludingGravity.y * 10) <= -30 && (e.accelerationIncludingGravity.y * 10) > -120)
-		// 	NowY -= 10;
-		// else if ((e.accelerationIncludingGravity.y * 10) <= -120 && (e.accelerationIncludingGravity.y * 10) > -260)
-		// 	NowY -= 30;
-		// else if ((e.accelerationIncludingGravity.y * 10) <= -260)
-		// 	NowY -= 50;
 	}
 	// }, 100);
 	socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
