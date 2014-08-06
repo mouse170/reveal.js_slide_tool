@@ -1,7 +1,9 @@
 *{
-	margin: 20px 20px ;
+	margin: 20px auto ;
 }
-
+body{
+	width: 360px;
+}
 #control{
 	position: absolute;
 	top: 50%;
@@ -50,6 +52,7 @@
 	left: 0;
 	top: 50%;
 	margin-top: -20px;
+	margin-left: 20px;
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -61,6 +64,7 @@
 	right: 0;
 	top: 50%;
 	margin-top: -20px;
+	margin-right: 20px;
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
@@ -112,7 +116,5 @@ span:active{
 	50%{
 		background: linear-gradient(135deg,#fff,#e50000,#b8b8b8);
 	}
-
-
 
 }
