@@ -1,5 +1,5 @@
 *{
-	margin: 20px auto ;
+	margin: auto auto ;
 }
 body{
 	width: 360px;
@@ -17,6 +17,7 @@ body{
 	box-shadow:inset -2px -2px 2px 1px rgba(20%,20%,40%,0.5),inset 2px 2px 2px 1px rgba(20%,20%,40%,0.3), 0 3px 2px 1px rgba(100%,100%,100%,0.9); 
 }
 #outer{
+	margin-top: 50%;
 	display: block;
 	position: relative;
 	border-radius: 300px;
@@ -28,6 +29,7 @@ body{
 #up{
 	position: absolute;
 	left: 50%;
+	margin-top: 20px;
 	margin-left:-20px; 
 	top:0;
 	width: 0;
@@ -39,6 +41,7 @@ body{
 #down{
 	position: absolute;
 	left: 50%;
+	margin-bottom: 20px;
 	margin-left:-20px; 
 	bottom: 0;
 	width: 0;
