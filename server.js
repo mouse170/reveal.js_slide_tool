@@ -27,7 +27,7 @@ function handler(req, res) {
 io.sockets.on('connection', function(socket) {
     socket.on('addme', function(username) {
         socket.username = username;
-        socket.emit('chat', 'SERVER', 'You have connected');
+        // socket.emit('chat', 'SERVER', 'You have connected');
         // socket.broadcast.emit('chat', 'SERVER', username + ' is on deck');
         io.sockets.emit('slide',Nowindexh,Nowindexv);
     });
@@ -35,9 +35,9 @@ io.sockets.on('connection', function(socket) {
         io.sockets.emit('chat', socket.username, data);
     });
 
-    socket.on('disconnect', function() {
-        io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
-    });
+    // socket.on('disconnect', function() {
+    //     io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
+    // });
 
     socket.on('Draw',function(type){
         if(type=='M')
