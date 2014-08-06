@@ -21,17 +21,17 @@ function slideRight() {
 	socket.emit('Remote', "right");
 }
 
-window.addEventListener('devicemotion', test, false);
-
 function openGravity() {
 	if (!isOpen) {
 		isOpen = true;
-		// window.addEventListener('devicemotion', test, false);
+		window.removeEventListener('devicemotion', test, false);
+		window.addEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.add('Gon');
 	}
 	else{
 		isOpen=false;
-		// window.removeEventListener('devicemotion', test, false);
+		window.removeEventListener('devicemotion', test, false);
+		window.addEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.remove('Gon');
 	}
 }
