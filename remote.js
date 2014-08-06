@@ -70,13 +70,13 @@ function test(e) {
 				isStart =true;
 			},1000);
 		}
-		else if(e.accelerationIncludingGravity.x<=-7  && isStart){
-			slideLeft();
-			isStart=false;
-			setTimeout( function(){
-				isStart =true;
-			},1000);
-		}
+		// else if(e.accelerationIncludingGravity.x<=-7  && isStart){
+		// 	slideLeft();
+		// 	isStart=false;
+		// 	setTimeout( function(){
+		// 		isStart =true;
+		// 	},1000);
+		// }
 	}
 	// alert(e.accelerationIncludingGravity.x);
 }
