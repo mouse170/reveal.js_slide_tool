@@ -64,14 +64,14 @@ function test(e) {
 			isStart=false;
 			setTimeout( function(){
 				isStart =true;
-			},100);
+			},1000);
 		}
 		else if(e.accelerationIncludingGravity.x<=-7  && isStart){
 			slideLeft();
 			isStart=false;
 			setTimeout( function(){
 				isStart =true;
-			},100);
+			},1000);
 		}
 	}
 	// alert(e.accelerationIncludingGravity.x);
