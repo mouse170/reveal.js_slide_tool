@@ -57,10 +57,20 @@ function test(e) {
 		socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
 	}else
 	{
-		if(e.accelerationIncludingGravity.x>=5)
+		if(e.accelerationIncludingGravity.x>=5 && isStart){
 			slideRight();
-		else if(e.accelerationIncludingGravity.x<=-7)
+			isStart=false;
+			setTimeout( function(){
+				isStart =true;
+			},100);
+		}
+		else if(e.accelerationIncludingGravity.x<=-7  && isStart){
 			slideLeft();
+			isStart=false;
+			setTimeout( function(){
+				isStart =true;
+			},100);
+		}
 	}
 	// alert(e.accelerationIncludingGravity.x);
 }
