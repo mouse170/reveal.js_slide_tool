@@ -60,9 +60,9 @@ function test(e) {
 		socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
 	}else
 	{
-		if(e.accelerationIncludingGravity.x>=50)
+		if(e.accelerationIncludingGravity.x>=40)
 			slideRight();
-		else if(e.accelerationIncludingGravity.x<=-75)
+		else if(e.accelerationIncludingGravity.x<=-55)
 			slideLeft();
 	}
 	// alert(e.accelerationIncludingGravity.x);
