@@ -39,19 +39,19 @@ function openGravity(){
 function test(e){
 		// xTime = window.setTimeout(function() {
 				// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
-				if((e.accelerationIncludingGravity.x*10) >0){
-					NowX-=5;
-				}else{
-					NowX+=5;
+				if((e.accelerationIncludingGravity.x*10) >=10){
+					NowX-=10;
+				}else if((e.accelerationIncludingGravity.x*10) <=-10){
+					NowX+=10;
 				}
 		// }, 100);
 
 		// yTime = window.setTimeout(function() {
 				// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
-				if((e.accelerationIncludingGravity.y*10)>0){
-					NowY+=5;
-				}else{
-					NowY-=5;
+				if((e.accelerationIncludingGravity.y*10)>=10){
+					NowY+=10;
+				}else if((e.accelerationIncludingGravity.y*10)<=-10){
+					NowY-=10;
 				}
 		// }, 100);
 		socket.emit('mouse','mousePicAll','E', NowX,NowY,NowW,NowH);
