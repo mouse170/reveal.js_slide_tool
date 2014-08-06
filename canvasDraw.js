@@ -255,7 +255,7 @@ function useMarker(){
 	cursor="M";
 	image.src = "../image/marker.png";
 	console.log("in marker");
-	cvs.style.zIndex = 1;
+	cvs.style.zIndex = 2;
 	buttonM.classList.add('moveoutX');
 	buttonC.classList.add('moveoutY');
 	buttonT.classList.add('moveoutXY');
@@ -280,7 +280,7 @@ function useCursor(){
 	cursor="C";
 	image.src = "../image/micky.png";
 	console.log("in cursor");
-	cvs.style.zIndex = 1;
+	cvs.style.zIndex = 2;
 	buttonM.classList.add('moveoutX');
 	buttonC.classList.add('moveoutY');
 	buttonT.classList.add('moveoutXY');
@@ -303,7 +303,7 @@ function useEraser() {
 	cursor="E";
 	image.src = "../image/eraser.png";
 	console.log("in eraser");
-	cvs.style.zIndex = 1;
+	cvs.style.zIndex = 2;
 	if (isServer) {
 		socket.emit('Draw', "E");
 	}
@@ -315,7 +315,7 @@ function useText() {
 	console.log("in Text");
 	cvs.style.cursor = "text";
 	cvs.style.zIndex = 5;
-	cvs.style.zIndex = 1;
+	cvs.style.zIndex = 2;
 	image.src = "../image/nyan_cat.gif";
 	buttonM.classList.add('moveoutX');
 	buttonC.classList.add('moveoutY');
