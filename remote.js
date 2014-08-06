@@ -20,18 +20,15 @@ function slideLeft() {
 function slideRight() {
 	socket.emit('Remote', "right");
 }
+window.removeEventListener('devicemotion', test, false);
 
 function openGravity() {
 	if (!isOpen) {
 		isOpen = true;
-		window.removeEventListener('devicemotion', test, false);
-		window.addEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.add('Gon');
 	}
 	else{
 		isOpen=false;
-		window.removeEventListener('devicemotion', test, false);
-		window.addEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.remove('Gon');
 	}
 }
@@ -60,9 +57,9 @@ function test(e) {
 		socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
 	}else
 	{
-		if(e.accelerationIncludingGravity.x>=40)
+		if(e.accelerationIncludingGravity.x>=5)
 			slideRight();
-		else if(e.accelerationIncludingGravity.x<=-55)
+		else if(e.accelerationIncludingGravity.x<=-7)
 			slideLeft();
 	}
 	// alert(e.accelerationIncludingGravity.x);
