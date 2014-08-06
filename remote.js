@@ -7,18 +7,22 @@ var xTime, yTime;
 
 function slideUp() {
 	socket.emit('Remote', "up");
+	navigator.vibrate(500);
 }
 
 function slideDown() {
 	socket.emit('Remote', "down");
+	navigator.vibrate(500);
 }
 
 function slideLeft() {
 	socket.emit('Remote', "left");
+	navigator.vibrate(500);
 }
 
 function slideRight() {
 	socket.emit('Remote', "right");
+	navigator.vibrate(500);
 }
 
 window.addEventListener('devicemotion', test, false);
