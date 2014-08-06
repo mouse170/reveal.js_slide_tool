@@ -35,9 +35,9 @@ io.sockets.on('connection', function(socket) {
         io.sockets.emit('chat', socket.username, data);
     });
 
-    socket.on('disconnect', function() {
-        io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
-    });
+    // socket.on('disconnect', function() {
+    //     io.sockets.emit('chat', 'SERVER', socket.username + ' has left the building');
+    // });
 
     socket.on('Draw',function(type){
         if(type=='M')
