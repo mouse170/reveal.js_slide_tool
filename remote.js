@@ -21,17 +21,17 @@ function slideRight() {
 	socket.emit('Remote', "right");
 }
 
+window.addEventListener('devicemotion', test, false);
+
 function openGravity() {
 	if (!isOpen) {
 		isOpen = true;
-		window.addEventListener('devicemotion', test, false);
+		// window.addEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.add('Gon');
 	}
 	else{
 		isOpen=false;
-		window.removeEventListener('devicemotion', test, false);
-		window.clearInterval(xTime);
-		window.clearInterval(yTime);
+		// window.removeEventListener('devicemotion', test, false);
 		document.getElementById('Gravity').classList.remove('Gon');
 	}
 }
@@ -41,22 +41,30 @@ function openGravity() {
 function test(e) {
 	// xTime = window.setTimeout(function() {
 	// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
-	if ((e.accelerationIncludingGravity.x * 10) >= 10) {
-		NowX -= (e.accelerationIncludingGravity.x * 5);
-	} else if ((e.accelerationIncludingGravity.x * 10) <= -10) {
-		NowX -= (e.accelerationIncludingGravity.x * 5);
-	}
-	// }, 100);
+	if(isOpen){
+		if ((e.accelerationIncludingGravity.x * 10) >= 10) {
+			NowX -= (e.accelerationIncludingGravity.x * 5);
+		} else if ((e.accelerationIncludingGravity.x * 10) <= -10) {
+			NowX -= (e.accelerationIncludingGravity.x * 5);
+		}
+		// }, 100);
 
-	// yTime = window.setTimeout(function() {
-	// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
-	if ((e.accelerationIncludingGravity.y * 10) >= 30) {
-		NowY += (e.accelerationIncludingGravity.y * 5);
-	} else if ((e.accelerationIncludingGravity.y * 10) <= -30) {
-		NowY += (e.accelerationIncludingGravity.y * 5);
+		// yTime = window.setTimeout(function() {
+		// ctx.drawImage(searchVideo[0], 0, 0, 270, 135)
+		if ((e.accelerationIncludingGravity.y * 10) >= 30) {
+			NowY += (e.accelerationIncludingGravity.y * 5);
+		} else if ((e.accelerationIncludingGravity.y * 10) <= -30) {
+			NowY += (e.accelerationIncludingGravity.y * 5);
+		}
+		// }, 100);
+		socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
+	}else
+	{
+		if(e.accelerationIncludingGravity.x>=50)
+			slideRight();
+		else if(e.accelerationIncludingGravity.x<=-75)
+			slideLeft();
 	}
-	// }, 100);
-	socket.emit('mouse', 'mousePicAll', 'E', NowX, NowY, NowW, NowH);
 	// alert(e.accelerationIncludingGravity.x);
 }
 
