@@ -25,12 +25,14 @@ function openGravity(){
 	if(!isOpen){
 		isOpen=true;
 		window.addEventListener('devicemotion', test, false);
+		document.getElementById('Gravity').classList.add('Gon');
 	}
 	else{
 		isOpen=false;
 		window.removeEventListener('devicemotion', test, false);
 		window.clearInterval(xTime);
 		window.clearInterval(yTime);
+		document.getElementById('Gravity').classList.remove('Gon');
 	}
 }
 
