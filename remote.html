@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Remote</title>
+	<script type="text/javascript" src="remote.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/remotecss.css">
+</head>
+<body>
+	<div id="outer">
+		<div id="control">
+			<!-- <span id="up" onclick="slideUp()"></span> -->
+			<span id="up" onclick="slideLeft()"></span>
+			<!-- <span id="down" onclick="slideDown()"></span> -->
+			<span id="down" onclick="slideRight()"></span>
+			<!-- <span id="left" onclick="slideLeft()"></span> -->
+			<span id="left" onclick="slideUp()"></span>
+			<!-- <span id="right" onclick="slideRight()"></span> -->
+			<span id="right" onclick="slideDown()"></span>
+			<span id="Gravity" onclick="openGravity()"></span>
+		</div>
+	</div>
+	
+	
+<script type="text/javascript" src="http://localhost:8124/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="remote.js"></script>
+</body>
+</html>

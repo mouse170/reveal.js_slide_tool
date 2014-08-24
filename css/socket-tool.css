@@ -1,0 +1,292 @@
+body{
+	cursor: url(../../image/micky.png),defalut;
+}
+
+ #canvas{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	/*pointer-events:none;*/
+}
+#canvas_cursor{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 5;
+	/*pointer-events:none;*/
+}
+#canvas_cursor:hover body,#canvas:hover body{
+	cursor:none;
+}
+.reveal a, img{
+	z-index: 30;
+}
+
+#slide_field{
+	width: 100%;
+	height: 80%;
+	border:0px;
+}
+
+/*左側工具按鈕*/
+#tool{
+	z-index: 11;
+	position: absolute;
+	left: 0;
+}
+#marker{
+	top: 0;
+	left: 80px;
+}
+#cursors{
+	top: 80px;
+	left: 0;
+}
+#keyfont{
+	top: 55px;
+	left: 55px;
+}
+
+/*右側工具按鈕*/
+#eraser{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	top: 120px;
+}
+#clear{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	top: 60px;
+}
+#checkServer{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+
+#haveVideo{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	bottom:0;
+	display: none;
+}
+
+#video{
+	z-index: 10;
+	position: absolute;
+	display: none;
+}
+
+/*按鈕之顯示*/
+#tool,#eraser,#clear{
+	-webkit-filter: brightness(0.5);
+	display: none;
+	opacity: 0;
+	
+}
+#cursors,#marker,#keyfont{
+	-webkit-filter: brightness(0.5);
+	display: none;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+}
+
+#tool:hover,#marker:hover,#cursors:hover,#keyfont:hover,#eraser:hover,#clear:hover{
+	-webkit-filter: brightness(1);
+}
+
+/*插入文字*/
+#textbg{
+	position: absolute;
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:rgba(0%,0%,0%,0);
+	display: none;
+	z-index: 20;
+}
+#addText{
+	outline: none;
+	border:none;
+	background:rgba(0%,0%,0%,0.3);
+	color:#fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+/*主控鈕淡入淡出*/
+.fadein{
+  -webkit-animation: fadein 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.fadeout{
+  -webkit-animation: fadeout 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+
+
+/*按鈕群滑進*/
+.moveinX{
+  -webkit-animation: moveinX 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveinY{
+  -webkit-animation: moveinY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveinXY{
+  -webkit-animation: moveinXY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+
+/*按鈕群滑出*/
+.moveoutX{
+  -webkit-animation: moveoutX 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveoutY{
+  -webkit-animation: moveoutY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+.moveoutXY{
+  -webkit-animation: moveoutXY 0.5s 1;
+  -webkit-animation-fill-mode: both;
+}
+
+/* expend tool animation*/
+@-webkit-keyframes moveinX {
+  0% {
+    -webkit-transform: translateX(-80px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveinY {
+  0% {
+    -webkit-transform: translateY(-80px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveinXY {
+  0% {
+    -webkit-transform: translate(-55px,-55px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: translate(0,0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveoutX {
+  0% {
+    -webkit-transform: translateX(0px);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateX(-80px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moveoutY {
+  0% {
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateY(-80px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moveoutXY {
+  0% {
+    -webkit-transform: translate(0,0)
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(-55px,-55px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadein {
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 0.5;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.5;
+
+	}
+	100%{
+		opacity: 0;
+	}
+}
