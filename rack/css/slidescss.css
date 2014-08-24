@@ -1,0 +1,421 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+*{
+	font-family: 'Dosis', sans-serif;
+}
+body{
+	margin: 0 0 ;
+	overflow: hidden;
+}
+
+/*令圖片隨螢幕長寬自動縮放*/
+img{
+	height: auto;
+    max-width: 100%;
+}
+
+
+/*------------- bottom_panel -------------*/
+#leftfield{
+	float: left;
+	width: 50%;
+	height: 20%;
+}
+#lefttag_title{
+	opacity: 1;
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 80px;
+	width: 50px;
+	height:20px;
+	color: #a67f48;
+	font-size: 35pt;
+	-webkit-transition: all 1s;
+}
+#lefttag{
+	opacity: 1;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 80px;
+	height:20px;
+	color: #a67f48;
+	font-size: 10pt;
+	-webkit-transition: all 1s;
+}
+#leftfield:hover #chatfield,#leftfield:hover #inputfield,#leftfield:hover #chatbg{
+	opacity: 1;
+	-webkit-transition: all 1s;
+}
+#leftfield:hover #lefttag,#leftfield:hover #lefttag_title{
+	opacity: 0;
+	-webkit-transition: all 1s;
+}
+#chatbg{
+	opacity: 0;
+	z-index: 2;
+	position: absolute;
+	width: 50%;
+	height: 5%;
+	background: linear-gradient(rgba(138,118,93,1),rgba(100%,100%,100%,0));
+}
+#chatfield{
+	opacity: 0;
+	margin: 0px 0px;
+	width: 100%;
+	height: 80%;
+	background: #8a765d;
+	display: inline-block;
+	overflow-y:auto;
+	overflow-x:hidden; 
+	-webkit-transition: all 1s;
+}
+
+
+#notefield{
+	background-color: #FFFF99; 
+	margin: 0px 0px;
+	float: left;
+	width: 50%;
+	height: 20%;
+}
+#note{
+	opacity: 0.3;
+	color: #333;
+	background-color: #FFFFcc; 
+	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 1s;
+}
+#notefield:hover #note{
+	opacity: 1;
+	color: #333;
+	background-color: #FFFFcc; 
+	background-image: linear-gradient(90deg, transparent 79px, #FF9999 79px, #FF9999 81px, transparent 81px),linear-gradient(#FFCCCC .1em, transparent .1em);
+	background-size: 100% 1.2em;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 1s;
+}
+#inputfield{
+	opacity: 0;
+	background: #8a765d;
+	margin: 0px 0px;
+	width: 100%;
+	height: 20%;
+}
+
+#notefield:hover #notetag,#notefield:hover #notetag_title{
+	opacity: 0;
+	-webkit-transition: all 1s;
+}
+#notetag_title{
+	opacity: 1;
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 80px;
+	width: 50px;
+	height:20px;
+	color: #a67f48;
+	font-size: 35pt;
+	-webkit-transition: all 1s;
+}
+#notetag{
+	opacity: 1;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 80px;
+	height:20px;
+	color: #a67f48;
+	font-size: 10pt;
+	-webkit-transition: all 1s;
+}
+
+
+#inputText{
+	margin: 0px 0px;
+	z-index: 10;
+	position: absolute;
+}
+
+#data{
+	outline: none;
+	border-radius: 10px 0 0 10px;
+	position: absolute;
+	width: 50%;
+	height: 25px;
+}
+#sendtext{
+	outline: none;
+	box-shadow: -2px 0 0 0 rgba(20%,20%,40%,0.5);
+	position: absolute;
+	left: 50%;
+	margin-left: -80px;
+	font-size: 15pt;
+	width: 80px;
+	height: 25px;
+	border: none;
+	color: #fff;
+	background: #c33;
+}
+
+/*------------- bottom_panel end -------------*/
+
+
+
+/*------------- canvas setting & tools -------------*/
+#canvas{
+	z-index: 5;
+	position: absolute;
+}
+#slide_field{
+	width: 100%;
+	height: 80%;
+	border:0px;
+}
+#marker{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+}
+#cursors{
+	z-index: 10;
+	display: none;
+	position: absolute;
+	left: 0;
+}
+#clear{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
+#eraser{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
+
+#addtext{
+	z-index: 10;
+	position: absolute;
+	right: 0;
+}
+
+/*------------- canvas setting & tools end -------------*/
+.bubble {
+  text-align: right;
+  float: right;
+  clear: both;
+}
+
+.bubbleAlt {
+  text-align: left;
+  float: left;
+  clear: both;
+}
+.bubble {
+  position: relative;
+  padding: 1px 5px;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 3px;
+  box-shadow: -1px 3px 2px 0 rgba(51, 51, 102, 0.3);
+  color: #fff;
+  margin: 3px 10px 3px 10px;
+  background: #e88c5e;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.bubbleAlt {
+  position: relative;
+  padding: 1px 5px;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 3px;
+  box-shadow: 1px 3px 2px 0 rgba(51, 51, 102, 0.3);
+  color: #fff;
+  margin: 5px auto;
+  margin-right: 30px;
+  margin-left: 20px;
+  background: #ef9087;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.bubble:before {
+  z-index: 0;
+  content: '';
+  position: absolute;
+  top: 33%;
+  right: -20px;
+  width: 10px;
+  height: 0px;
+  border-width:5px;
+  border-style:solid;
+  border-color:transparent transparent transparent #e88c5e;
+}
+
+.bubbleAlt:before {
+  z-index: 0;
+  content: '';
+  position: absolute;
+  top: 33%;
+  left: -20px;
+  width: 10px;
+  height: 0px;
+  border-width:5px;
+  border-style:solid;
+  border-color:transparent #ef9087 transparent transparent ;
+}
+/*Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS :*/
+ @media only screen and (max-width: 740px) {
+ 	#lefttag_title,#notetag_title{
+		opacity: 1;
+		position: absolute;
+		margin-top: 25px;
+		margin-left: 40px;
+		width: 50px;
+		height:20px;
+		color: #a67f48;
+		font-size: 25pt;
+		-webkit-transition: all 1s;
+	}
+	#lefttag,#notetag{
+		opacity: 1;
+		position: absolute;
+		margin-top: 80px;
+		margin-left: 40px;
+		height:20px;
+		color: #a67f48;
+		font-size: 5pt;
+		-webkit-transition: all 1s;
+	}
+ }
+/*Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS :*/
+ @media only screen and (max-width: 480px) {
+ 	#leftfield,#notefield{
+ 		margin: 0px 0px;
+		display: block;
+		width: 100%;
+		height: 25%;
+ 	}
+	#chatfield{
+		margin: 0px 0px;
+		display: inline-block;
+		width: 100%;
+		height: 80%;
+	}
+	#inputfield{
+		margin: 0px 0px;
+		float: left;
+		width: 100%;
+		height: 20%;
+		background: #8a765d;
+	}
+	#input{
+		font-size: 15pt;
+		width: 100%;
+		height: 100%;
+	}
+	#inputText{
+		margin: 0px 0px;
+		z-index: 10;
+		position: absolute;
+	}
+
+	#data{
+		outline: none;
+		border-radius: 10px 0 0 10px;
+		margin: 0px 0px;
+		width: 90%;
+	}
+	#sendtext{
+		outline: none;
+		box-shadow: -2px 0 0 0 rgba(20%,20%,40%,0.5);
+		position: absolute;
+		left: 100%;
+		margin-left: -80px;
+		width: 80px;
+		height: 25px;
+		border: none;
+		color: #fff;
+		background: #c33;
+	}
+	#chatbg{
+		opacity: 0;
+		z-index: 2;
+		position: absolute;
+		width: 100%;
+		height: 5%;
+		background: linear-gradient(rgba(138,118,93,1),rgba(100%,100%,100%,0));
+	}
+	#lefttag_title,#notetag_title{
+		opacity: 1;
+		position: absolute;
+		margin-top: 25px;
+		margin-left: 40px;
+		width: 50px;
+		height:20px;
+		color: #a67f48;
+		font-size: 25pt;
+		-webkit-transition: all 1s;
+	}
+	#lefttag,#notetag{
+		opacity: 1;
+		position: absolute;
+		margin-top: 80px;
+		margin-left: 40px;
+		height:20px;
+		color: #a67f48;
+		font-size: 5pt;
+		-webkit-transition: all 1s;
+	}
+
+}
+@media only screen and (min-width: 1400px){
+	#lefttag_title,#notetag_title{
+		opacity: 1;
+		position: absolute;
+		margin-top: 25px;
+		margin-left: 40px;
+		width: 50px;
+		height:20px;
+		color: #a67f48;
+		font-size: 35pt;
+		-webkit-transition: all 1s;
+	}
+	#lefttag,#notetag{
+		opacity: 1;
+		position: absolute;
+		margin-top: 80px;
+		margin-left: 40px;
+		height:20px;
+		color: #a67f48;
+		font-size: 15pt;
+		-webkit-transition: all 1s;
+	}
+}
+
+
+/*scrollbar style*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: none;
+} 
+::-webkit-scrollbar-thumb {
+	width: 5px;
+    background-color: none;
+    border-right: 5px solid #fff;
+}
+::-webkit-scrollbar-button {
+    background-color: none;
+}
+::-webkit-scrollbar-corner {
+      background-color: black;
+}
+

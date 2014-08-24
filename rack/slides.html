@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/slidescss.css">
+    <link href='css/noto-sans.css' rel='stylesheet' type='text/css'>
+    <script language="javascript">
+    function reSize() {
+        /*使iframe隨螢幕變更大小*/
+        　　
+        parent.document.getElementById("slide_field").height = document.body.scrollHeight;
+        parent.document.getElementById("slide_field").width = document.body.scrollWidth;
+    }
+    window.onChange = reSize;
+    </script>
+    <!-- websocket_chat -->
+    <!-- <script src="ws/client.js"></script> -->
+    <script src="http://localhost:8124/socket.io/socket.io.js"></script>
+    <script type="text/javascript"src="./scroll.js"></script>
+    <script>
+    var addmeName;
+    var socket = io.connect('http://localhost:8124', {'force new connection': true});
+    socket.on('connect', function() {
+        addmeName=prompt('Who are you?');
+        socket.emit('addme', addmeName);
+    });
+    socket.on('chat', function(username, data) {
+        if(username!=addmeName){
+            var p = document.createElement('p');
+            p.innerHTML =  "<div class=\"bubbleAlt\"><b>"+username + ':</b> ' + data+"</div>";
+            document.getElementById('chatfield').appendChild(p);
+            setScrollbar();
+            hint();
+        }
+    });
+    window.addEventListener('load', function() {
+        document.getElementById('sendtext').addEventListener('click',sendData, false);
+    }, false);
+
+    function sendData(){
+            var text = document.getElementById('data').value;
+            socket.emit('sendchat', text);
+            var p = document.createElement('p');
+            p.innerHTML =  "<div class=\"bubble\"><b>"+addmeName + ':</b> ' + text+"</div>";
+            document.getElementById('chatfield').appendChild(p);
+        }
+    
+    </script>
+</head>
+
+<body>
+    <iframe src="reveal.js-master/index.html" id="slide_field" scrolling="no" style="cursor:url('image/white.png'),default;"></iframe>
+    <div id="bottom_panel">
+        <div id="leftfield">
+            <p id="lefttag_title">IHaveAQuestion</p>
+            <p id="lefttag">- - - I think therefore I am.</p>
+            <div id="chatbg"></div>
+            <div id="chatfield">
+            </div>
+            <div id="inputfield"> 
+                    <input type="text" id="data" size="90%"/>
+                    <input type="button" id="sendtext" value="SEND"/>
+            </div>
+        </div>
+
+        <div id="notefield">
+            <p id="notetag_title">NoteBook</p>
+            <p id="notetag">- - - Create by team B !!! _ ( : 3 >   < ) _ </p>
+            <textarea id="note"></textarea>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      var data = document.getElementById('data'); 
+      var scroll = document.getElementById('chatfield'); 
+      data.addEventListener('keydown',enterkey,false);
+      function  setScrollbar(){      
+            scroll.scrollTop = scroll.scrollHeight;
+            if(data.value!=''){
+                setTimeout(function(){
+                    setScrollbar();
+                    data.value='';
+                }, 100); 
+            }
+      }
+      function hint(){
+            var title = document.getElementById('lefttag_title');
+            title.style.color="red";
+            title.innerHTML = 'NewMessage!!!';
+            setTimeout(function(){
+                title.style.color="#a67f48";
+                title.innerHTML = 'IHaveAQuestion';
+            },1000);
+      }
+      function enterkey(e){
+            if(e.keyCode==13){
+                sendData();
+                setScrollbar();
+            }
+      }
+       var subBtn = document.getElementById('sendtext');
+       subBtn.onclick = function(){setScrollbar();}
+       /*猜測，若將scroll的設定直接放在onload後所指的方法內，
+       取到的值可能為訊息送出前的scrollHeight，故只能捲到倒數第二行*/ 
+    </script> 
+</body>
+</html>
+   
