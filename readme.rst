@@ -9,9 +9,9 @@
 ***************
 參與人員
 ***************
-- Pan
-- Dan
-- Chu 
+- `Pan <https://github.com/Ying-Hsiu>`_
+- `Dan <https://github.com/FuYaoDe>`_
+- `Chu <https://github.com/mouse170>`_
 
 ***************
 安裝說明
